@@ -4,7 +4,6 @@ namespace PowerUps
 {
     public class PowerUp : MonoBehaviour
     {
-        public Sprite sprite;
 
         public float buffDuration;
         private bool _buffTriggered;
