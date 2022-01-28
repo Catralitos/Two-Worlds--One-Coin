@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,12 +8,21 @@ namespace Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        
-        public float currentMoveSpeed = 5;
-        
+
+        [HideInInspector] public bool canDash;
+        public float moveSpeed = 5;
+        [HideInInspector] public float currentMoveSpeed = 5;
+        public float jumpPower = 5;
+
         public float currentJumpPower = 5;
         
         public bool isGrounded = false;
+
+        private void Start()
+        {
+            currentJumpPower = jumpPower;
+            currentMoveSpeed = moveSpeed;
+        }
 
         void Update()
         {
