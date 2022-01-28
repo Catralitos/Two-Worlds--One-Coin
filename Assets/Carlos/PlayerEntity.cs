@@ -5,7 +5,8 @@ namespace Player
     public class PlayerEntity : MonoBehaviour
     {
         [HideInInspector] public static PlayerEntity Instance { get; private set; }
-
+        [HideInInspector] public PlayerHealth Health;
+        
         private void Awake()
         {
             if (Instance == null)
@@ -19,7 +20,7 @@ namespace Player
             }
 
             //Movement = GetComponent<PlayerMovement>();
-            //Health = GetComponent<PlayerHealth>();
+            Health = GetComponent<PlayerHealth>();
             //Controller = GetComponent<PlayerControls>();
             //Combat = GetComponent<PlayerCombat>();
             //UI = GetComponent<PlayerUI>();
