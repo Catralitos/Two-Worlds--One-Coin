@@ -1,16 +1,21 @@
-using UnityEngine;
+using Player;
 
-public class Dash : MonoBehaviour
+namespace PowerUps
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   public class Dash : PowerUp
+   {
+       public float speedBoost;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+       public override void TriggerEffect()
+       {
+           base.TriggerEffect();
+           PlayerEntity.Instance.Movement.canDash = true;
+       }
+
+       protected override void StopEffect()
+       {
+           PlayerEntity.Instance.Movement.canDash = false;
+       }
+   } 
 }
+

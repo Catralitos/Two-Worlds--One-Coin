@@ -6,7 +6,7 @@ namespace Player
     {
         [HideInInspector] public static PlayerEntity Instance { get; private set; }
         [HideInInspector] public PlayerHealth Health;
-        //[HideInInspector] public PlayerMovement Movement;
+        [HideInInspector] public PlayerMovement Movement;
 
         
         private void Awake()
