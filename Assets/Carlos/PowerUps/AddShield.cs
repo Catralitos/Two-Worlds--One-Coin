@@ -4,13 +4,9 @@ namespace PowerUps
 {
     public class AddShield : PowerUp
     {
-        public int hitsShielded;
-
-        public override void TriggerEffect()
+        protected override void TriggerEffect()
         {
-            PlayerEntity.Instance.Health.AddShields(hitsShielded);
+            PlayerEntity.Instance.PowerUps.shieldsToTrigger++;
         }
     }
 }
-
-

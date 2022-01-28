@@ -1,41 +1,23 @@
+using Extensions;
 using UnityEngine;
 
 namespace PowerUps
 {
     public class PowerUp : MonoBehaviour
     {
+        public LayerMask playerMask;
 
-        public float buffDuration;
-        private bool _buffTriggered;
-        private float _durationLeft;
-
-
-        private void Start()
+        private void OnCollisionEnter2D(Collision2D other)
         {
-            _durationLeft = buffDuration;
-        }
-
-        private void Update()
-        {
-            if (_buffTriggered)
+            if (playerMask.HasLayer(other.gameObject.layer))
             {
-                _durationLeft -= Time.deltaTime;
-
-                if (_durationLeft <= 0.0f)
-                {
-                    StopEffect();
-                }
+                TriggerEffect();
+                Destroy(gameObject);
             }
         }
-        
-        public virtual void TriggerEffect()
-        {
-            _buffTriggered = true;
-        }
 
-        protected virtual void StopEffect()
+        protected virtual void TriggerEffect()
         {
-            //do nothing
         }
     }
 }

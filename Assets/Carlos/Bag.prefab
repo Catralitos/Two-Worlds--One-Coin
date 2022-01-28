@@ -82,6 +82,10 @@ MonoBehaviour:
   maxFireAngle: 40
   spawnPoint: {fileID: 3969552388981978880}
   powerUpPrefabs:
+  - {fileID: 4128425997867209343, guid: e630ee2ea7a140d4db6c9cb5b597156e, type: 3}
+  - {fileID: 4128425997867209343, guid: dc75d78f0b9599541b2691c44ed069b1, type: 3}
+  - {fileID: 4128425997867209343, guid: 977776b1a1d56bc4b9f90f7a57cd8e50, type: 3}
+  - {fileID: 4128425997867209343, guid: ccf862c593544c14aa994a6b3a3bf0d0, type: 3}
   - {fileID: 4128425997867209343, guid: bfac247368102bc478eb95309b5c50b2, type: 3}
 --- !u!212 &3969552389329067546
 SpriteRenderer:

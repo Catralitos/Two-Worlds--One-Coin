@@ -4,17 +4,10 @@ namespace PowerUps
 {
     public class SpeedUp : PowerUp
     {
-        public float speedBoost;
-
-        public override void TriggerEffect()
+        protected override void TriggerEffect()
         {
-            base.TriggerEffect();
-            PlayerEntity.Instance.Movement.currentMoveSpeed = PlayerEntity.Instance.Movement.moveSpeed * speedBoost;
+            PlayerEntity.Instance.PowerUps.speedsToTrigger++;
         }
 
-        protected override void StopEffect()
-        {
-            PlayerEntity.Instance.Movement.currentMoveSpeed = PlayerEntity.Instance.Movement.moveSpeed;
-        }
     }
 }

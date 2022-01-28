@@ -4,17 +4,10 @@ namespace PowerUps
 {
     public class JumpBoost : PowerUp
     {
-        public float jumpBoost;
-
-        public override void TriggerEffect()
+        protected override void TriggerEffect()
         {
-            base.TriggerEffect();
-            PlayerEntity.Instance.Movement.currentJumpPower = PlayerEntity.Instance.Movement.jumpPower * jumpBoost;
+            PlayerEntity.Instance.PowerUps.jumpsToTrigger++;
         }
 
-        protected override void StopEffect()
-        {
-            PlayerEntity.Instance.Movement.currentJumpPower = PlayerEntity.Instance.Movement.jumpPower;
-        }
     }
 }

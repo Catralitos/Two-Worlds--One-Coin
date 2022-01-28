@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4128425997867209336}
   - component: {fileID: 4128425997867209337}
   - component: {fileID: 4128425997867209342}
-  - component: {fileID: 1255147900429889162}
+  - component: {fileID: 7274477764511559955}
   m_Layer: 0
-  m_Name: RestoreHealth
+  m_Name: JumpBoost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 14cea7e56e013734fabb645777897e45, type: 3}
-  m_Color: {r: 0.97504056, g: 1, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.01786089, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -122,7 +122,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &1255147900429889162
+--- !u!114 &7274477764511559955
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,7 +131,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4128425997867209343}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 748df35289fc39744b6f5fea51420437, type: 3}
+  m_Script: {fileID: 11500000, guid: b7552d59ed2f1aa40bb19c4beae8b6bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerMask:
