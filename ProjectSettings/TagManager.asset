@@ -11,17 +11,10 @@ TagManager:
   - 
   - Water
   - UI
-<<<<<<< Updated upstream
-  - Enemies
-  - Player
-  - Bag
-  - Projectile
-=======
-  - Ground
-  - Wall
-  - Ceiling
   - 
->>>>>>> Stashed changes
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -45,9 +38,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 3336849553
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
