@@ -35,7 +35,8 @@ namespace Enemies.Base
         [HideInInspector] public Rigidbody2D rb;
 
         public bool grounded;
-        public bool wallHit;
+        public bool wallHitLeft;
+        public bool wallHitRight;
         public bool ceilingHit;
 
         public float horizontalVelocity;
@@ -81,7 +82,10 @@ namespace Enemies.Base
             }
 
             if (wallMask.HasLayer(other.gameObject.layer)){
-                wallHit = true;
+                if(other.gameObject.transform.position.x > transform.position.x)
+                    wallHitRight = true;
+                else
+                    wallHitLeft = true;
             }
             
             if (ceilingMask.HasLayer(other.gameObject.layer)){
@@ -99,8 +103,12 @@ namespace Enemies.Base
              if (groundMask.HasLayer(other.gameObject.layer)){
                  grounded = false;
             }
+            
              if (wallMask.HasLayer(other.gameObject.layer)){
-                wallHit = false;
+                if(other.gameObject.transform.position.x > transform.position.x)
+                    wallHitRight = false;
+                else
+                    wallHitLeft = false;
             }
             
             if (ceilingMask.HasLayer(other.gameObject.layer)){

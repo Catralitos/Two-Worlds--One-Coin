@@ -203,22 +203,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1024
   playerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   wallMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 2048
   ceilingMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4096
   currentHealth: 100
   maxHealth: 100
   contactDamage: 0
   rb: {fileID: 0}
   grounded: 0
-  wallHit: 0
+  wallHitLeft: 0
+  wallHitRight: 0
   ceilingHit: 0
   horizontalVelocity: 5
   TimeBetweenStates: 1
@@ -228,7 +229,8 @@ MonoBehaviour:
   startDash: 0
   maxHeight: 10
   dashSpeed: 6
-  hitDamage: 1
+  hitDamage: 40
+  ceilingJump: 40
   healthBar: {fileID: 59586223}
 --- !u!4 &51624276
 Transform:
@@ -238,7 +240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51624272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.93, y: -2.7, z: 0}
+  m_LocalPosition: {x: 7.93, y: -1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1686816505}
@@ -428,7 +430,7 @@ GameObject:
   - component: {fileID: 235254503}
   - component: {fileID: 235254502}
   - component: {fileID: 235254501}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -961,7 +963,8 @@ GameObject:
   m_Component:
   - component: {fileID: 584014063}
   - component: {fileID: 584014064}
-  m_Layer: 0
+  - component: {fileID: 584014065}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -976,7 +979,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584014062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.7, y: -3, z: 0}
+  m_LocalPosition: {x: 0.7, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1341849340}
@@ -998,6 +1001,32 @@ MonoBehaviour:
   Health: {fileID: 0}
   Movement: {fileID: 0}
   PowerUps: {fileID: 0}
+--- !u!61 &584014065
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584014062}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1001583932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,7 +1276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1341849340}
   - component: {fileID: 1341849341}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1427,7 +1456,8 @@ MonoBehaviour:
   contactDamage: 0
   rb: {fileID: 0}
   grounded: 0
-  wallHit: 0
+  wallHitLeft: 0
+  wallHitRight: 0
   ceilingHit: 0
   horizontalVelocity: 0
   TimeBetweenStates: 2
@@ -1438,6 +1468,7 @@ MonoBehaviour:
   maxHeight: 0
   dashSpeed: 0
   hitDamage: 0
+  ceilingJump: 0
   healthBar: {fileID: 0}
 --- !u!50 &1466827737
 Rigidbody2D:
@@ -1597,7 +1628,7 @@ GameObject:
   - component: {fileID: 1535947755}
   - component: {fileID: 1535947754}
   - component: {fileID: 1535947753}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: WallLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1676,7 +1707,7 @@ GameObject:
   - component: {fileID: 1580638936}
   - component: {fileID: 1580638938}
   - component: {fileID: 1580638937}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2032,7 +2063,7 @@ GameObject:
   - component: {fileID: 1729377564}
   - component: {fileID: 1729377562}
   - component: {fileID: 1729377563}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: WallRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

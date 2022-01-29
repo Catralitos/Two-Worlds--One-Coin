@@ -22,6 +22,8 @@ namespace GGJBoss{
 
         public int hitDamage;
 
+        public int ceilingJump;
+
         public Slider healthBar;
             protected override void Start()
             {
