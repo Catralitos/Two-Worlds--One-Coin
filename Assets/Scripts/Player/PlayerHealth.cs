@@ -67,7 +67,9 @@ namespace Player
         {
             _invincible = true;
             GetComponentInChildren<SpriteRenderer>().material = hitMaterial;
-            Physics.IgnoreLayerCollision(gameObject.layer, hitMask, true);
+          //  Physics.IgnoreLayerCollision(6, 7);
+
+            Physics2D.IgnoreCollision(this.transform.GetComponent<Collider2D>(),PlayerEntity.Instance.bossMan.GetComponent<Collider2D>());
             Invoke(nameof(RestoreVulnerability), invincibilityFrames / 60.0f);
         }
 
@@ -75,7 +77,8 @@ namespace Player
         {
             _invincible = false;
             GetComponentInChildren<SpriteRenderer>().material = _defaultMaterial;
-            Physics.IgnoreLayerCollision(gameObject.layer, hitMask, false);
+           // Physics2D.IgnoreCollision(this.transform.GetComponent<Collider2D>(), PlayerEntity.Instance.bossMan.GetComponent<Collider2D>(), false);
+            //Physics.IgnoreLayerCollision(7, 6);
 
         }
 
