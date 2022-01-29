@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class VisualCoinFlipper : MonoBehaviour
 {
-    Image image;
+    public Image image;
     public Sprite[] sides;
     int flipCount = 1;
     public int maxFlip = 3;
@@ -13,7 +13,6 @@ public class VisualCoinFlipper : MonoBehaviour
     Animator anim;
     private void Awake()
     {
-        image = GetComponent<Image>();
         anim = this.GetComponent<Animator>();
     }
 

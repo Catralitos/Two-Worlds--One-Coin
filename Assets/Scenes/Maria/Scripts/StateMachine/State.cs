@@ -1,5 +1,7 @@
 using UnityEngine;
 
+namespace GDT.StateMachines
+{
     public abstract class StateBase : MonoBehaviour
     {
         [HideInInspector] public bool Initialized = false;
@@ -30,3 +32,4 @@ using UnityEngine;
         }
 
     }
+}
