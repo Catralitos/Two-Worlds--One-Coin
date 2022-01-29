@@ -9,12 +9,12 @@ public class SimpleTransitionScript : MonoBehaviour
     Material material;
 
     float cutoff = 0;
+    public CoinFlipManager CoinFlipManager;
     public float transitionSpeed = 0.5f;
 
     private int state = 0;
     private ChangeCameraScript callback;
     private int cameraNumber;
-
     public List<Texture2D> transitionTextureList;
     void Start()
     {
@@ -64,6 +64,7 @@ public class SimpleTransitionScript : MonoBehaviour
     {
         cutoff = 0;
         state = 0;
+        CoinFlipManager.OnTransitionEnd();
     }
 
     public void TransitionToBlack()
