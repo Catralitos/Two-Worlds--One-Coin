@@ -6,48 +6,36 @@ namespace Boss{
     public class Projectile : MonoBehaviour
     {
         public LayerMask playerLayer;
+        public LayerMask destroyMask;
         public float speed;
         public int damage;
-        
-        private Transform player;
-        private Vector2 target;
-        private Vector3 movementVector = Vector3.zero;
-        // Start is called before the first frame update
-        void Start()
-        {
-            player = PlayerEntity.Instance.gameObject.transform;
-            target = new Vector2(player.position.x, player.position.y);
 
-            Vector2 movementVector = (transform.position - player.position).normalized * speed*Time.deltaTime;
+        private Vector2 _movementVector;
+        // Start is called before the first frame update
+        private void Start()
+        {
+            Vector3 target = PlayerEntity.Instance.gameObject.transform.position;
+            _movementVector = (target - transform.position).normalized;
         }
 
         // Update is called once per frame
-        void Update()
+        private void Update()
         {
-            transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-            //transform.position += movementVector * Time.deltaTime;
-
-            Transform currentPlayerPos = PlayerEntity.Instance.gameObject.transform;
-            if(transform.position.x == target.x && transform.position.y == target.y){
-                DestroyProjectile();
-            }
-
-            /*if(transform.position.x == currentPlayerPos.position.x && transform.position.y == currentPlayerPos.position.y){
-                DestroyProjectile();
-            } else{
-              //  if timer*/
+            transform.position = speed * Time.deltaTime * _movementVector;
+           
         }
 
-        void OnTriggerEnter2D(Collider2D other){
+        private void OnTriggerEnter2D(Collider2D other){
             if(playerLayer.HasLayer(other.gameObject.layer))
             {
                 PlayerEntity.Instance.Health.Hit(damage);
-                DestroyProjectile();
+                Destroy(gameObject);
             }
-        }
 
-        void DestroyProjectile(){
-            Destroy(gameObject);
+            if (destroyMask.HasLayer(other.gameObject.layer))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
