@@ -55,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool facingRight = false;
 
+    public bool isDashing;
+
     private void Start()
     {
 
@@ -65,7 +67,21 @@ public class PlayerMovement : MonoBehaviour
 
     // Movimento horizontal
     void Update()
-    {
+    {   Debug.Log(dashTime);
+        if (inputX != 0)
+            {
+            dashDirection = inputX;
+            }
+
+        if (dashTime > 0)
+        {
+            isDashing = true;
+        }
+        else
+        {
+            isDashing = false;
+        }
+
         if ((facingRight && inputX < 0) || (!facingRight && inputX > 0))
         {
             Flip();
@@ -84,6 +100,8 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("Grounded", isGrounded);
 
         animator.SetFloat("VerticalSpeed", theRB.velocity.y);
+
+        animator.SetBool("Dash", isDashing);
 
         FlippingCoin();
 
@@ -167,7 +185,6 @@ public class PlayerMovement : MonoBehaviour
     // Dash
     public void Dash(InputAction.CallbackContext context){
         if (context.performed && canDash && canDashAux && ! flippingCoin){
-            dashDirection = inputX;
             dashTime = dashTimeMax;
             canDashAux = false;
             canDashJump = false;

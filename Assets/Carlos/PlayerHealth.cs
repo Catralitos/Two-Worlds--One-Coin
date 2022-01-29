@@ -9,12 +9,18 @@ public class PlayerHealth : MonoBehaviour
     public int maxHealth;
     public int invincibilityFrames;
     
+    private SpriteRenderer _renderer;
+    private Material _defaultMaterial;
+    public Material hitMaterial;
+    
     private bool _invincible;
     private int _currentShields; 
     
     private void Start()
     {
         currentHealth = maxHealth;
+        _renderer = GetComponentInChildren<SpriteRenderer>();
+        _defaultMaterial = _renderer.material;
     }
 
     public void RestoreHealth(int health)
@@ -59,6 +65,7 @@ public class PlayerHealth : MonoBehaviour
     private void StartIFrames()
     {
         _invincible = true;
+        _renderer.material = hitMaterial;
         Physics.IgnoreLayerCollision(gameObject.layer, hitMask, true);
         Invoke(nameof(RestoreVulnerability), invincibilityFrames / 60.0f);
     }
@@ -66,6 +73,7 @@ public class PlayerHealth : MonoBehaviour
     private void RestoreVulnerability()
     {
         _invincible = false;
+        _renderer.material = _defaultMaterial;
         Physics.IgnoreLayerCollision(gameObject.layer, hitMask, false);
 
     }

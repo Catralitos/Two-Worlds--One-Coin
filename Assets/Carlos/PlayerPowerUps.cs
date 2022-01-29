@@ -68,7 +68,7 @@ namespace Player
 
             PlayerMovement movement = PlayerEntity.Instance.Movement;
 
-            movement.canDash = _dashTimeRemaining > 0.0f;
+           // movement.canDash = _dashTimeRemaining > 0.0f;
             movement.currentJumpPower =
                 _jumpBoostRemaining > 0.0f ? movement.jumpPower * jumpBoost : movement.jumpPower;
             movement.currentMoveSpeed =
