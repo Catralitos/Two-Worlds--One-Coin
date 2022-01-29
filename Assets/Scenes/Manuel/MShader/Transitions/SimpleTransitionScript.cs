@@ -14,9 +14,12 @@ public class SimpleTransitionScript : MonoBehaviour
     private int state = 0;
     private ChangeCameraScript callback;
     private int cameraNumber;
+
+    public List<Texture2D> transitionTextureList;
     void Start()
     {
         material = this.GetComponent<Image>().material;
+        material.SetFloat("_Cutoff", 0);
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -38,6 +41,9 @@ public class SimpleTransitionScript : MonoBehaviour
 
     public void ActivateTransition(ChangeCameraScript script, int cameraNumber)
     {
+        var rand = Random.Range(0, transitionTextureList.Count);
+
+        material.SetTexture("_TransitionTex", transitionTextureList[rand]);
 
         this.callback = script;
         this.cameraNumber = cameraNumber;
