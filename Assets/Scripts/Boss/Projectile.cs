@@ -10,7 +10,7 @@ namespace Boss{
         public float speed;
         public int damage;
 
-        private Vector2 _movementVector;
+        private Vector3 _movementVector;
         // Start is called before the first frame update
         private void Start()
         {
@@ -21,7 +21,7 @@ namespace Boss{
         // Update is called once per frame
         private void Update()
         {
-            transform.position = speed * Time.deltaTime * _movementVector;
+            transform.position = transform.position + (speed * Time.deltaTime * _movementVector);
            
         }
 

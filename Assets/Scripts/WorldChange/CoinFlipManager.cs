@@ -55,6 +55,7 @@ namespace WorldChange
         {
             backImg.sprite = frontImg.sprite;
             StartCoroutine("Cooldown");
+            
         }
 
         IEnumerator Cooldown()

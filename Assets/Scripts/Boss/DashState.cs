@@ -37,7 +37,7 @@ namespace Boss{
                 if((target.wallHitRight && direction == "right") || (target.wallHitLeft && direction == "left"))
                 {
                     target.currentHealth -= target.hitDamage;
-                    target.healthBar.value = target.currentHealth;
+                 //   target.healthBar.value = target.currentHealth;
                     target.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                     target.rb.velocity = Vector2.zero;
                     SetState(DashAirState.Create(target));
