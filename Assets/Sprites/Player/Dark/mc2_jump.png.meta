@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 4dee7f79b509b604c8b02d3ecb8c2ae8
+guid: 2f2bf0af4dc45bb4db33d57f14d55ae7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7887539133744473434
-    second: mc_2_walk_0
+      213: 7792630387192800159
+    second: mc2_jump_0
   - first:
-      213: 4497372002276575565
-    second: mc_2_walk_1
+      213: -6704311278235778137
+    second: mc2_jump_1
   - first:
-      213: 7943806291355879853
-    second: mc_2_walk_2
+      213: 568258970703636999
+    second: mc2_jump_2
   - first:
-      213: -8644760489758790518
-    second: mc_2_walk_3
+      213: 6695571855454140083
+    second: mc2_jump_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -99,29 +99,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mc_2_walk_0
+      name: mc2_jump_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 9
-        width: 50
-        height: 85
+        x: 66
+        y: 5
+        width: 79
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,19 +117,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a55e4da5d0b267d60800000000000000
-      internalID: 7887539133744473434
+      spriteID: f93aa8ecc0cf42c60800000000000000
+      internalID: 7792630387192800159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_2_walk_1
+      name: mc2_jump_1
       rect:
         serializedVersion: 2
-        x: 74
-        y: 8
-        width: 50
+        x: 163
+        y: 2
+        width: 35
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a38c15d96085f2a0800000000000000
+      internalID: -6704311278235778137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mc2_jump_2
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 5
+        width: 72
         height: 86
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -150,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d498b7a0200e96e30800000000000000
-      internalID: 4497372002276575565
+      spriteID: 70a2839e58cd2e700800000000000000
+      internalID: 568258970703636999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_2_walk_2
+      name: mc2_jump_3
       rect:
         serializedVersion: 2
-        x: 144
-        y: 7
-        width: 50
-        height: 86
+        x: 311
+        y: 6
+        width: 85
+        height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,29 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da9c7c0ebb11e3e60800000000000000
-      internalID: 7943806291355879853
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mc_2_walk_3
-      rect:
-        serializedVersion: 2
-        x: 207
-        y: 7
-        width: 50
-        height: 86
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8c689fe224a70880800000000000000
-      internalID: -8644760489758790518
+      spriteID: 3b6727cb0237bec50800000000000000
+      internalID: 6695571855454140083
       vertices: []
       indices: 
       edges: []

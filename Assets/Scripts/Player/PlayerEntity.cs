@@ -52,6 +52,8 @@ namespace Player
                 this.transform.position += new Vector3(-x_Distance, 0.0f, 0.0f);
                 bossMan.SetActive(false);
             }
+
+            Movement.animator = GetComponentInChildren<Animator>();
         }
     }
 }

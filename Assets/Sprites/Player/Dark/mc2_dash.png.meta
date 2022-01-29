@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 4dee7f79b509b604c8b02d3ecb8c2ae8
+guid: 07a5ec043555cc249ae780b5ccdae0e6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7887539133744473434
-    second: mc_2_walk_0
+      213: -5841144300738713440
+    second: mc2_dash_0
   - first:
-      213: 4497372002276575565
-    second: mc_2_walk_1
+      213: -3733186141984371676
+    second: mc2_dash_1
   - first:
-      213: 7943806291355879853
-    second: mc_2_walk_2
+      213: -8390234087164791453
+    second: mc2_dash_2
   - first:
-      213: -8644760489758790518
-    second: mc_2_walk_3
+      213: 2227505664171215403
+    second: mc2_dash_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -99,29 +99,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mc_2_walk_0
+      name: mc2_dash_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 9
-        width: 50
-        height: 85
+        x: 5
+        y: 6
+        width: 59
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,20 +117,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a55e4da5d0b267d60800000000000000
-      internalID: 7887539133744473434
+      spriteID: 0a8eba8c43610fea0800000000000000
+      internalID: -5841144300738713440
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_2_walk_1
+      name: mc2_dash_1
       rect:
         serializedVersion: 2
-        x: 74
-        y: 8
-        width: 50
-        height: 86
+        x: 66
+        y: 6
+        width: 61
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +138,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d498b7a0200e96e30800000000000000
-      internalID: 4497372002276575565
+      spriteID: 42c4c9eabfe013cc0800000000000000
+      internalID: -3733186141984371676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_2_walk_2
+      name: mc2_dash_2
       rect:
         serializedVersion: 2
-        x: 144
-        y: 7
-        width: 50
-        height: 86
+        x: 134
+        y: 6
+        width: 89
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da9c7c0ebb11e3e60800000000000000
-      internalID: 7943806291355879853
+      spriteID: 3653b241d86ef8b80800000000000000
+      internalID: -8390234087164791453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mc_2_walk_3
+      name: mc2_dash_3
       rect:
         serializedVersion: 2
-        x: 207
-        y: 7
-        width: 50
-        height: 86
+        x: 236
+        y: 6
+        width: 62
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,8 +180,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8c689fe224a70880800000000000000
-      internalID: -8644760489758790518
+      spriteID: b2a88188990b9ee10800000000000000
+      internalID: 2227505664171215403
       vertices: []
       indices: 
       edges: []
