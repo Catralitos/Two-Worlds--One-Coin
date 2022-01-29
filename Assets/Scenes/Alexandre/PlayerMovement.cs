@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
 
     // Movimento horizontal
     void Update()
-    {   Debug.Log(dashTime);
+    {   
         if (inputX != 0)
             {
             dashDirection = inputX;
