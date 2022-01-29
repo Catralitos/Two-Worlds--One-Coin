@@ -6,18 +6,18 @@ namespace Player
     public class PlayerHealth : MonoBehaviour
     {
         public LayerMask hitMask;
-    
-        public int currentHealth;  
+
+        public int currentHealth;
         public int maxHealth;
         public int invincibilityFrames;
-    
+
         //private SpriteRenderer _renderer;
         private Material _defaultMaterial;
         public Material hitMaterial;
-    
+
         private bool _invincible;
-        private int _currentShields; 
-    
+        private int _currentShields;
+
         private void Start()
         {
             currentHealth = maxHealth;
@@ -67,19 +67,19 @@ namespace Player
         {
             _invincible = true;
             GetComponentInChildren<SpriteRenderer>().material = hitMaterial;
-          //  Physics.IgnoreLayerCollision(6, 7);
-
-            Physics2D.IgnoreCollision(this.transform.GetComponent<Collider2D>(),PlayerEntity.Instance.bossMan.GetComponent<Collider2D>());
+            Physics2D.IgnoreLayerCollision(gameObject.layer, PlayerEntity.Instance.bossMan.layer, true);
+            //Physics2D.IgnoreCollision(transform.GetComponent<Collider2D>(),
+            //    PlayerEntity.Instance.bossMan.GetComponent<Collider2D>(), true);
             Invoke(nameof(RestoreVulnerability), invincibilityFrames / 60.0f);
         }
 
         private void RestoreVulnerability()
         {
-            _invincible = false;
+            //Physics2D.IgnoreCollision(transform.GetComponent<Collider2D>(),
+            //   PlayerEntity.Instance.bossMan.GetComponent<Collider2D>(), false);
+            Physics2D.IgnoreLayerCollision(gameObject.layer, PlayerEntity.Instance.bossMan.layer, false);
             GetComponentInChildren<SpriteRenderer>().material = _defaultMaterial;
-           // Physics2D.IgnoreCollision(this.transform.GetComponent<Collider2D>(), PlayerEntity.Instance.bossMan.GetComponent<Collider2D>(), false);
-            //Physics.IgnoreLayerCollision(7, 6);
-
+            _invincible = false;
         }
 
         private void Die()

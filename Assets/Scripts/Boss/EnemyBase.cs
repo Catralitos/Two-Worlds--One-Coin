@@ -67,10 +67,9 @@ namespace Boss
         {
             if (playerMask.HasLayer(other.gameObject.layer))
             {
-                //PlayerEntity.Instance.Health.Hit(contactDamage);
                 rb.velocity = Vector2.zero;
                 rb.mass = 100000000000;
-                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                //rb.constraints = RigidbodyConstraints2D.FreezeAll;
             }
 
             if (groundMask.HasLayer(other.gameObject.layer))
@@ -96,7 +95,7 @@ namespace Boss
         {
             if (playerMask.HasLayer(other.gameObject.layer))
             {
-                rb.constraints = _initialConstraints;
+                //rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 rb.mass = _initialMass;
             }
 
