@@ -1,3 +1,4 @@
+using Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class SimpleTransitionScript : MonoBehaviour
     public float transitionSpeed = 0.5f;
 
     private int state = 0;
+    public float distanceX = 14;
     private ChangeCameraScript callback;
     private int cameraNumber;
     public List<Texture2D> transitionTextureList;
@@ -59,6 +61,10 @@ public class SimpleTransitionScript : MonoBehaviour
     {
         this.callback.CutTo(cameraNumber);
         state = 2;
+        PlayerEntity.Instance.ChangeAvatar();
+        
+
+
     }
 
     public void FinishedTransition()
