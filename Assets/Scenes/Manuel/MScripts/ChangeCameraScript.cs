@@ -20,17 +20,11 @@ public class ChangeCameraScript : MonoBehaviour
     {
         if (realWorldCameraActive)
         {
-            transitionHandler.ActivateTransition();
-
-
-            ChangetoDreamWorld();
+            transitionHandler.ActivateTransition(this, 1);
         }
         else 
         {
-            transitionHandler.ActivateTransition();
-
-
-            ChangetoRealWorld();
+            transitionHandler.ActivateTransition(this, 2);
         }
     }
 
@@ -50,6 +44,15 @@ public class ChangeCameraScript : MonoBehaviour
        
     }
 
+    public void CutTo(int cameraNumber)
+    {
+
+        if (cameraNumber == 1)
+        {
+            ChangetoDreamWorld();
+        }
+        else ChangetoRealWorld();
+    }
 
     void ChangetoDreamWorld()
     {

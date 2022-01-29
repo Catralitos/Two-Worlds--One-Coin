@@ -11,7 +11,9 @@ public class SimpleTransitionScript : MonoBehaviour
     float cutoff = 0;
     public float transitionSpeed = 0.5f;
 
-    private bool transitioning = false;
+    private int state = 0;
+    private ChangeCameraScript callback;
+    private int cameraNumber;
     void Start()
     {
         material = this.GetComponent<Image>().material;
@@ -19,32 +21,70 @@ public class SimpleTransitionScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (transitioning)
+        if (state == 1)
         {
-            cutoff = material.GetFloat("_Cutoff");
-            var newCutoff = cutoff + Time.deltaTime * transitionSpeed;
-            if (cutoff < 1)
-            {
-                
-                material.SetFloat("_Cutoff", newCutoff);
-              
-            }
-            else
-            {
-                transitioning = false;
-                cutoff = 0;
-                this.GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 0.0f);
-            }
+
+            TransitionToBlack();
         }
+
+
+        else if (state == 2)
+        {
+            TransitionFromBlack();
+        }
+          
     }
 
 
-    public void ActivateTransition()
+    public void ActivateTransition(ChangeCameraScript script, int cameraNumber)
     {
-        if (!transitioning)
+
+        this.callback = script;
+        this.cameraNumber = cameraNumber;
+        if (state == 0)
         {
-            transitioning = true;
+            state = 1;
             this.GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 1.0f); ;
+        }
+    }
+
+    public void Intermission()
+    {
+        this.callback.CutTo(cameraNumber);
+        state = 2;
+    }
+
+    public void FinishedTransition()
+    {
+        cutoff = 0;
+        state = 0;
+    }
+
+    public void TransitionToBlack()
+    {
+        cutoff = material.GetFloat("_Cutoff");
+        var newCutoff = cutoff + Time.deltaTime * transitionSpeed;
+        if (cutoff <= 1)
+        {
+
+            material.SetFloat("_Cutoff", newCutoff);
+
+        }
+        else if (cutoff > 1)
+            Intermission();
+    }
+
+    public void TransitionFromBlack()
+    {
+        cutoff = material.GetFloat("_Cutoff");
+        var newCutoff = cutoff - Time.deltaTime * transitionSpeed;
+        if (cutoff >= 0)
+        {
+            material.SetFloat("_Cutoff", newCutoff);
+
+        } else if(cutoff < 0)
+        {
+            FinishedTransition();
         }
     }
 }
