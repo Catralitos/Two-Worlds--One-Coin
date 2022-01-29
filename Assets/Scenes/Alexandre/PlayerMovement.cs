@@ -30,8 +30,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         theRB.velocity = new Vector2(inputX * currentMoveSpeed, theRB.velocity.y);
-
-        
+        Debug.Log(theRB.velocity);
     }
     public void Move(InputAction.CallbackContext context)
     {
