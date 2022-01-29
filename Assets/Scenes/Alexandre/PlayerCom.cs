@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Extensions;
 
 public class PlayerCom : MonoBehaviour
 {
@@ -15,7 +16,9 @@ public class PlayerCom : MonoBehaviour
 
     public double attackCooldownMax = 0.5;
 
-    public LayerMask enemyLayers;
+    public LayerMask projectileLayers;
+
+    public LayerMask bagLayer;
 
     // Update is called once per frame
     void Update()
@@ -38,11 +41,18 @@ public class PlayerCom : MonoBehaviour
 
     void Attack()
     {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, projectileLayers + bagLayer);
 
         foreach(Collider2D enemy in hitEnemies)
         {
-            Debug.Log("Ataque");
+            if (projectileLayers.HasLayer(enemy.gameObject.layer)){
+            Debug.Log("Acertou um projetil");
+            }
+
+            if (bagLayer.HasLayer(enemy.gameObject.layer))
+            {
+                enemy.gameObject.GetComponent<PowerUpBag>().SpawnPowerUp();
+            }
         }
     }
 

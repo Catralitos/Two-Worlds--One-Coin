@@ -70,9 +70,9 @@ namespace Player
 
             movement.canDash = _dashTimeRemaining > 0.0f;
             movement.currentJumpPower =
-                _jumpBoostRemaining < 0.0f ? movement.jumpPower * jumpBoost : movement.jumpPower;
+                _jumpBoostRemaining > 0.0f ? movement.jumpPower * jumpBoost : movement.jumpPower;
             movement.currentMoveSpeed =
-                _speedBoostRemaining < 0.0f ? movement.moveSpeed * speedBoost : movement.moveSpeed;
+                _speedBoostRemaining > 0.0f ? movement.moveSpeed * speedBoost : movement.moveSpeed;
 
             //meter um else para tirar/pausar boosts e isso durante o mundo real
         }

@@ -51,8 +51,12 @@ public class PlayerMovement : MonoBehaviour
 
     private double flippingTime;
 
+    private bool facingRight = false;
+
     private void Start()
     {
+
+        facingRight = false;
         currentJumpPower = jumpPower;
         currentMoveSpeed = moveSpeed;
     }
@@ -60,6 +64,11 @@ public class PlayerMovement : MonoBehaviour
     // Movimento horizontal
     void Update()
     {
+        if ((facingRight && inputX < 0) || (!facingRight && inputX > 0))
+        {
+            Flip();
+        }
+
         if (flippingCoin == false && dashTime == 0){
         theRB.velocity = new Vector2(inputX * currentMoveSpeed, theRB.velocity.y);
         }
@@ -157,6 +166,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    // Flip
+    public void Flip()
+    {
+         facingRight = ! facingRight;
+         Vector3 scale = transform.localScale;
+         scale.x *= -1;
+         transform.localScale = scale;
+    }
 
 }
 
