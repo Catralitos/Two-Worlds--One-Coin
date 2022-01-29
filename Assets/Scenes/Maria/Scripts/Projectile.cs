@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Extensions;
+using Player;
 using UnityEngine;
 
 namespace GGJBoss{
     public class Projectile : MonoBehaviour
     {
+        public LayerMask playerLayer;
         public float speed;
-
+        public int damage;
+        
         private Transform player;
         private Vector2 target;
         private Vector3 movementVector = Vector3.zero;
@@ -37,7 +41,9 @@ namespace GGJBoss{
         }
 
         void OnTriggerEnter2D(Collider2D other){
-            if(other.CompareTag("Player")){
+            if(playerLayer.HasLayer(other.gameObject.layer))
+            {
+                PlayerEntity.Instance.Health.Hit(damage);
                 DestroyProjectile();
             }
         }

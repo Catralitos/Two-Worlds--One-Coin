@@ -1,6 +1,6 @@
 using Extensions;
 using UnityEngine;
-
+using GGJBoss;
 public class PlayerHealth : MonoBehaviour
 {
     public LayerMask hitMask;
@@ -31,11 +31,11 @@ public class PlayerHealth : MonoBehaviour
     {
         if (hitMask.HasLayer(other.gameObject.layer))
         {
-            //Hit(other.gameObject.GetComponent<Behaviour>().contactDamage);
+            Hit(other.gameObject.GetComponent<GGJBoss.Behaviour>().contactDamage);
         }
     }
 
-    private void Hit(int damage)
+    public void Hit(int damage)
     {
         if (_invincible) return;
         if (_currentShields > 0)
