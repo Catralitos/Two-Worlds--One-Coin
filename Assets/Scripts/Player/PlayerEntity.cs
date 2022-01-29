@@ -8,6 +8,12 @@ namespace Player
         [HideInInspector] public PlayerHealth Health;
         [HideInInspector] public PlayerMovement Movement;
         [HideInInspector] public PlayerPowerUps PowerUps;
+
+        public GameObject realWorldSprite;
+        public GameObject surrealWorldSprite;
+
+        public float x_Distance = 15;
+     
         
         private void Awake()
         {
@@ -27,6 +33,23 @@ namespace Player
             //Controller = GetComponent<PlayerControls>();
             //Combat = GetComponent<PlayerCombat>();
             //UI = GetComponent<PlayerUI>();
+        }
+
+
+        public void ChangeAvatar()
+        {
+            if (realWorldSprite.activeSelf)
+            {
+                realWorldSprite.SetActive(false);
+                surrealWorldSprite.SetActive(true);
+                this.transform.position += new Vector3(x_Distance, 0.0f, 0.0f);
+
+            } else if (surrealWorldSprite.activeSelf)
+            {
+                surrealWorldSprite.SetActive(false);
+                realWorldSprite.SetActive(true);
+                this.transform.position += new Vector3(-x_Distance, 0.0f, 0.0f);
+            }
         }
     }
 }

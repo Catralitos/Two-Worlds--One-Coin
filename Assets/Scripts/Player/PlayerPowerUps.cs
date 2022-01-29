@@ -24,9 +24,11 @@ namespace Player
         private float _jumpBoostRemaining;
         private float _speedBoostRemaining;
 
-
+        private bool inSurrealWorld;
         public void SwitchToNightmare()
         {
+            inSurrealWorld = true;
+
             for (int i = 0; i < healthsToTrigger; i++)
             {
                 PlayerEntity.Instance.Health.RestoreHealth(healthBoost);
@@ -61,11 +63,12 @@ namespace Player
 
         private void Update()
         {
-            //TODO meter aqui um if está no mundo imaginário
-            _dashTimeRemaining -= Time.deltaTime;
-            _jumpBoostRemaining -= Time.deltaTime;
-            _speedBoostRemaining -= Time.deltaTime;
-
+            if (inSurrealWorld)
+            {           //TODO meter aqui um if está no mundo imaginário
+                _dashTimeRemaining -= Time.deltaTime;
+                _jumpBoostRemaining -= Time.deltaTime;
+                _speedBoostRemaining -= Time.deltaTime;
+          
             PlayerMovement movement = PlayerEntity.Instance.Movement;
 
            // movement.canDash = _dashTimeRemaining > 0.0f;
@@ -75,6 +78,7 @@ namespace Player
                 _speedBoostRemaining > 0.0f ? movement.moveSpeed * speedBoost : movement.moveSpeed;
 
             //meter um else para tirar/pausar boosts e isso durante o mundo real
+        }
         }
     }
 }
