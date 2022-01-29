@@ -10,19 +10,30 @@ public class PlayerCom : MonoBehaviour
     
     public Transform attackPoint;
     public float attackRange = 0.5f;
+
+    public double attackCooldown = 0;
+
+    public double attackCooldownMax = 0.5;
+
     public LayerMask enemyLayers;
 
     // Update is called once per frame
     void Update()
     {
+        if (attackCooldown > 0)
+            {
+                attackCooldown -= Time.deltaTime; 
+            }
     }
 
     public void Attack(InputAction.CallbackContext context)
     {
-        if (context.performed && canAttack)
+        if (context.performed && canAttack && attackCooldown <= 0)
         {
             Attack();
+            attackCooldown = attackCooldownMax;
         }
+        
     }
 
     void Attack()
