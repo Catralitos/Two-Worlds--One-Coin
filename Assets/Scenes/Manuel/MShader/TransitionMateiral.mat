@@ -60,12 +60,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TransitionTex:
-        m_Texture: {fileID: 2800000, guid: 0221cced561e6604fa82d17fd2bff70e, type: 3}
+        m_Texture: {fileID: 2800000, guid: bb2a876857ccf744b97447e29fbb3eab, type: 3}
         m_Scale: {x: 0, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
-    - _Cutoff: -0.009999925
+    - _Cutoff: 0.7999996
     - _DetailNormalMapScale: 1
     - _Distort: 1
     - _DstBlend: 0
