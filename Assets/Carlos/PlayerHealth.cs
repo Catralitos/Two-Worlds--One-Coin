@@ -31,7 +31,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (hitMask.HasLayer(other.gameObject.layer))
         {
-            //tirar dano isso agora depende de como metemos o dano de cada coisa
+            //Hit(other.gameObject.GetComponent<Behaviour>().contactDamage);
         }
     }
 
@@ -59,12 +59,15 @@ public class PlayerHealth : MonoBehaviour
     private void StartIFrames()
     {
         _invincible = true;
+        Physics.IgnoreLayerCollision(gameObject.layer, hitMask, true);
         Invoke(nameof(RestoreVulnerability), invincibilityFrames / 60.0f);
     }
 
     private void RestoreVulnerability()
     {
         _invincible = false;
+        Physics.IgnoreLayerCollision(gameObject.layer, hitMask, false);
+
     }
 
     private void Die()
