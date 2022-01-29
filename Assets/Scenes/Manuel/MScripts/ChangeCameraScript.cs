@@ -10,7 +10,9 @@ public class ChangeCameraScript : MonoBehaviour
 
     public Cinemachine.CinemachineVirtualCamera fakeWorldCamera;
 
-   // public Cinemachine.CinemachineVirtualCamera fadeToBlackCamera;
+    public Animator fadeAnim;
+
+    // public Cinemachine.CinemachineVirtualCamera fadeToBlackCamera;
 
     public bool realWorldCameraActive = true;
 
@@ -18,10 +20,14 @@ public class ChangeCameraScript : MonoBehaviour
     {
         if (realWorldCameraActive)
         {
+            fadeAnim.SetTrigger("Fade");
+           
             ChangetoDreamWorld();
         }
         else 
         {
+            fadeAnim.SetTrigger("Fade");
+       
             ChangetoRealWorld();
         }
     }
