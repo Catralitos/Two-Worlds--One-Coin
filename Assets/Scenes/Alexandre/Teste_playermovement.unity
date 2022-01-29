@@ -460,11 +460,11 @@ MonoBehaviour:
   animator: {fileID: 1554843972}
   dashDirection: 0
   dashTime: 0
-  dashTimeMax: 0.1
+  dashTimeMax: 0.2
   canDash: 1
   canDashAux: 1
   canDashJump: 0
-  dashSpeed: 30
+  dashSpeed: 20
   dashCooldownMax: 0.3
   dashCooldown: 0
   moveSpeed: 7
@@ -475,6 +475,7 @@ MonoBehaviour:
   flippingTimeMax: 1
   flippingCoin: 0
   coinFlipped: 0
+  isDashing: 0
 --- !u!114 &214595902
 MonoBehaviour:
   m_ObjectHideFlags: 0
