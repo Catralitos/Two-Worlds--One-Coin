@@ -1,34 +1,28 @@
 fileFormatVersion: 2
-guid: a1a51673ed4a28646be11c22ea6735ec
+guid: 90456dd80e79687429cb441bbdd2ba3d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4995079937180200391
-    second: velhinha2_0
+      213: -8699944011648538778
+    second: mc_jump_0
   - first:
-      213: 3685997799154838092
-    second: velhinha2_1
+      213: 9179588381862383305
+    second: mc_jump_1
   - first:
-      213: 5700988955512419783
-    second: velhinha2_2
+      213: 3879212922617249770
+    second: mc_jump_2
   - first:
-      213: -2915933530483596127
-    second: velhinha2_3
+      213: -3272130797792082972
+    second: mc_jump_3
   - first:
-      213: 8679936066543684517
-    second: velhinha2_4
+      213: -2309181656925650240
+    second: mc_jump_4
   - first:
-      213: -2913836822213966574
-    second: velhinha2_5
+      213: 6581524553759451633
+    second: mc_jump_5
   - first:
-      213: -7872602494334944538
-    second: velhinha2_6
-  - first:
-      213: -1758592760906752962
-    second: velhinha2_7
-  - first:
-      213: 8464992704058400147
-    second: velhinha2_8
+      213: -687547016012536423
+    second: mc_jump_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -73,7 +67,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 40
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -130,181 +124,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: velhinha2_0
+      name: mc_jump_0
       rect:
         serializedVersion: 2
-        x: 14
+        x: 22
         y: 3
-        width: 45
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7cd6e40ecb6125540800000000000000
-      internalID: 4995079937180200391
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: velhinha2_1
-      rect:
-        serializedVersion: 2
-        x: 90
-        y: 2
-        width: 42
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4aee75187b472330800000000000000
-      internalID: 3685997799154838092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: velhinha2_2
-      rect:
-        serializedVersion: 2
-        x: 167
-        y: 2
-        width: 41
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7c53eb9ff3bfd1f40800000000000000
-      internalID: 5700988955512419783
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: velhinha2_3
-      rect:
-        serializedVersion: 2
-        x: 251
-        y: 2
-        width: 46
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1a4efde37e58887d0800000000000000
-      internalID: -2915933530483596127
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: velhinha2_4
-      rect:
-        serializedVersion: 2
-        x: 333
-        y: 2
-        width: 46
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5ab007f3dd3557870800000000000000
-      internalID: 8679936066543684517
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: velhinha2_5
-      rect:
-        serializedVersion: 2
-        x: 433
-        y: 2
-        width: 41
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 215cb7e29d8ff87d0800000000000000
-      internalID: -2913836822213966574
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: velhinha2_6
-      rect:
-        serializedVersion: 2
-        x: 522
-        y: 2
-        width: 42
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6eabf430eb5eeb290800000000000000
-      internalID: -7872602494334944538
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: velhinha2_7
-      rect:
-        serializedVersion: 2
-        x: 614
-        y: 2
-        width: 45
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3c549d83393897e0800000000000000
-      internalID: -1758592760906752962
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: velhinha2_8
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 0
-        width: 661
-        height: 120
+        width: 29
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -312,8 +138,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39d9cafc302b97570800000000000000
-      internalID: 8464992704058400147
+      spriteID: 667e6e30407934780800000000000000
+      internalID: -8699944011648538778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mc_jump_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 3
+        width: 35
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cec53d6ff2746f70800000000000000
+      internalID: 9179588381862383305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mc_jump_2
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 3
+        width: 37
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aefb4b4a99bb5d530800000000000000
+      internalID: 3879212922617249770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mc_jump_3
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 3
+        width: 34
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e3ccfa306e0792d0800000000000000
+      internalID: -3272130797792082972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mc_jump_4
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 3
+        width: 64
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c24911848324ffd0800000000000000
+      internalID: -2309181656925650240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mc_jump_5
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 3
+        width: 35
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f9e75316b5465b50800000000000000
+      internalID: 6581524553759451633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mc_jump_6
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 3
+        width: 29
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9956138b1a75576f0800000000000000
+      internalID: -687547016012536423
       vertices: []
       indices: 
       edges: []

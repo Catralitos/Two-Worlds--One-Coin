@@ -8,34 +8,51 @@ public class VisualCoinFlipper : MonoBehaviour
     Image image;
     public Sprite[] sides;
     int flipCount = 1;
-
+    public int maxFlip = 3;
+    CoinFlipManager manager;
+    Animator anim;
     private void Awake()
     {
         image = GetComponent<Image>();
+        anim = this.GetComponent<Animator>();
     }
 
-    public void OnInteract()
+    public void OnInteract(float result, CoinFlipManager manager)
     {
-        StartCoroutine(WaitPlease(0.0001f, 1.0f));
+        this.manager = manager;
+        StartCoroutine(WaitPlease(0.005f, 1.0f, result));
     }
 
-    IEnumerator WaitPlease(float duration , float size)
+    IEnumerator WaitPlease(float duration , float size, float result)
     {
-        while (size > 0.1)
+
+        var auxmaxFlip = maxFlip - result;
+        anim.SetTrigger("Flip");
+        while (flipCount < auxmaxFlip)
         {
-            size = size - 0.07f;
-            transform.localScale = new Vector3(1, size, 1);
-            yield return new WaitForSeconds(duration);
+            while (size > 0.1)
+            {
+                size = size - 0.07f;
+                transform.localScale = new Vector3(1, size, 1);
+                yield return new WaitForSeconds(duration);
+            }
+            image.sprite = sides[flipCount % 2];
+            while (size < 0.99)
+            {
+                size = size + 0.07f;
+                transform.localScale = new Vector3(1, size, size);
+                yield return new WaitForSeconds(duration);
+            }
+            flipCount++;
         }
-        image.sprite = sides[flipCount % 2];
-        while (size < 0.99)
-        {
-            size = size + 0.07f;
-            transform.localScale = new Vector3(1, size, size);
-            yield return new WaitForSeconds(duration);
-        }
-        flipCount++;
+
+        flipCount = 0;
+        yield return new WaitForSeconds(1.0f);
+        OnFinishedFlipping();
     }
     
-
+    void OnFinishedFlipping()
+    {
+        manager.OnFlipEnd();
+    }
 }
