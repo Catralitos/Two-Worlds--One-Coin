@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CoinFlip : MonoBehaviour
+public class CoinFlipManager : MonoBehaviour
 {
 
     public TMPro.TextMeshProUGUI text;
     public ChangeCameraScript cameraManager;
-    public Animator buttonAnimator;
     public VisualCoinFlipper flipObject;
 
     public float flipCoinCooldown = 5.0f;
     private float flipCoinCooldownAux;
     private bool pressedButton = false;
+    public int result;
 
     void Start()
     {
@@ -27,7 +27,6 @@ public class CoinFlip : MonoBehaviour
         {
             if (flipCoinCooldownAux <= 0)
             {
-                buttonAnimator.SetTrigger("FadeIn");
                 flipCoinCooldownAux = flipCoinCooldown;
                 pressedButton = false;
             }
@@ -45,23 +44,20 @@ public class CoinFlip : MonoBehaviour
         {
             if (!pressedButton)
             {
-                flipObject.OnInteract();
+                
 
-                var result = Random.Range(0, 2);
+                result = Random.Range(0, 2);
                 pressedButton = true;
-                buttonAnimator.SetTrigger("Fade");
-
-                if (result == 1) // Coroa
-                    text.text = "Coinflip: Tails";
-                else
-                {
-                    text.text = "Coinflip: Heads";
-                }
-
+                flipObject.OnInteract(result, this);
                 Debug.Log("Result: " + result);
-                cameraManager.HandleCoinResult(result);
+               
             }
         }
 
+    }
+
+    public void OnFlipEnd()
+    {
+        cameraManager.HandleCoinResult(result);
     }
 }
