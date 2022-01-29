@@ -11,10 +11,17 @@ TagManager:
   - 
   - Water
   - UI
+<<<<<<< Updated upstream
   - Enemies
   - Player
   - Bag
   - Projectile
+=======
+  - Ground
+  - Wall
+  - Ceiling
+  - 
+>>>>>>> Stashed changes
   - 
   - 
   - 

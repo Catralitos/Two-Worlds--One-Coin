@@ -5,16 +5,19 @@ using UnityEngine.UI;
 
 public class VisualCoinFlipper : MonoBehaviour
 {
-    Image image;
+    public Image image;
     public Sprite[] sides;
     int flipCount = 1;
     public int maxFlip = 3;
     CoinFlipManager manager;
     Animator anim;
+    AudioSource audioSource;
+
+    public List<AudioClip> audioClips;
     private void Awake()
     {
-        image = GetComponent<Image>();
         anim = this.GetComponent<Animator>();
+        audioSource = this.GetComponent<AudioSource>();
     }
 
     public void OnInteract(float result, CoinFlipManager manager)
@@ -28,6 +31,7 @@ public class VisualCoinFlipper : MonoBehaviour
 
         var auxmaxFlip = maxFlip - result;
         anim.SetTrigger("Flip");
+    
         while (flipCount < auxmaxFlip)
         {
             while (size > 0.1)
@@ -43,6 +47,8 @@ public class VisualCoinFlipper : MonoBehaviour
                 transform.localScale = new Vector3(1, size, size);
                 yield return new WaitForSeconds(duration);
             }
+            if (flipCount == 3)
+                PlayAudio();
             flipCount++;
         }
 
@@ -54,5 +60,11 @@ public class VisualCoinFlipper : MonoBehaviour
     void OnFinishedFlipping()
     {
         manager.OnFlipEnd();
+    }
+
+    void PlayAudio()
+    {
+        audioSource.clip = audioClips[Random.Range(0, audioClips.Count)];
+        audioSource.Play();
     }
 }

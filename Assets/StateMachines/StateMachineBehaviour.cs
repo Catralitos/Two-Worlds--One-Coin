@@ -1,7 +1,4 @@
 using UnityEngine;
-
-namespace GDT.StateMachines
-{
     public abstract class StateMachineBehaviourBase : MonoBehaviour
     {
         protected abstract void Start();
@@ -28,4 +25,3 @@ namespace GDT.StateMachines
             }
         }
     }
-}
