@@ -9,7 +9,24 @@ public class PlayerMovement : MonoBehaviour
     {       
     public Rigidbody2D theRB;
 
-    [HideInInspector] public bool canDash;
+    // Dash
+    public float dashDirection;
+
+    public double dashTime = 0;
+
+    public double dashTimeMax = 0.1;
+
+    public bool canDash = true;
+
+    public bool canDashAux = true;
+
+    public float dashSpeed = 30;
+
+    public float dashCooldownMax = 3;
+
+    public float dashCooldown = 0;
+
+    // Speed
     public float moveSpeed = 5;
     [HideInInspector] public float currentMoveSpeed = 5;
 
@@ -24,20 +41,24 @@ public class PlayerMovement : MonoBehaviour
     private float inputX;
 
     // Moeda
+    public double flippingTimeMax = 1;
+
     public bool flippingCoin = false;
 
-    private double flippingTime = 2;
+    public bool coinFlipped = false;
 
-        private void Start()
-        {
-            currentJumpPower = jumpPower;
-            currentMoveSpeed = moveSpeed;
-        }
+    private double flippingTime;
+
+    private void Start()
+    {
+        currentJumpPower = jumpPower;
+        currentMoveSpeed = moveSpeed;
+    }
 
     // Movimento horizontal
     void Update()
     {
-        if (flippingCoin == false){
+        if (flippingCoin == false && dashTime == 0){
         theRB.velocity = new Vector2(inputX * currentMoveSpeed, theRB.velocity.y);
         }
         else {
@@ -46,6 +67,31 @@ public class PlayerMovement : MonoBehaviour
         }
 
         FlippingCoin();
+
+        // Dash
+        if (dashTime > 0){
+            theRB.velocity = new Vector2(dashDirection * dashSpeed, theRB.velocity.y);
+
+            dashTime -= Time.deltaTime;
+
+            dashCooldown = dashCooldownMax;
+        }
+        else
+        {
+            dashTime = 0;
+
+            if (dashCooldown > 0)
+            {
+                dashCooldown -= Time.deltaTime;
+            }
+
+            if (isGrounded && dashCooldown <= 0)
+            {
+                canDashAux = true;
+            }
+        }
+
+        
     }
     public void Move(InputAction.CallbackContext context)
     {
@@ -66,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
         // When pressing:
     public void CoinFlipStart(InputAction.CallbackContext context)
     {
-        if (context.performed){
+        if (context.performed && dashTime <= 0){
             flippingCoin = true;
         }
     }
@@ -82,16 +128,26 @@ public class PlayerMovement : MonoBehaviour
         // Espécie de Toggle
     public void FlippingCoin(){
         if (flippingCoin == false){
-            flippingTime = 1;
+            flippingTime = flippingTimeMax;
         }
         else {
             flippingTime -= Time.deltaTime;
 
             if (flippingTime < 0){
-
+                coinFlipped = true;
                 flippingCoin = false;
             }
         }
     }
+
+    // Dash
+    public void Dash(InputAction.CallbackContext context){
+        if (context.performed && canDash && canDashAux && ! flippingCoin){
+            dashDirection = inputX;
+            dashTime = dashTimeMax;
+            canDashAux = false;
+        }
+    }
+
 }
 
