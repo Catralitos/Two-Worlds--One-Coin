@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool canDashAux = true;
 
+    public bool canDashJump = false;
+
     public float dashSpeed = 30;
 
     public float dashCooldownMax = 3;
@@ -69,6 +71,11 @@ public class PlayerMovement : MonoBehaviour
         FlippingCoin();
 
         // Dash
+
+        if (isGrounded){
+            canDashJump = true;
+        }
+
         if (dashTime > 0){
             theRB.velocity = new Vector2(dashDirection * dashSpeed, theRB.velocity.y);
 
@@ -85,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
                 dashCooldown -= Time.deltaTime;
             }
 
-            if (isGrounded && dashCooldown <= 0)
+            if (dashCooldown <= 0 && canDashJump)
             {
                 canDashAux = true;
             }
@@ -146,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
             dashDirection = inputX;
             dashTime = dashTimeMax;
             canDashAux = false;
+            canDashJump = false;
         }
     }
 
