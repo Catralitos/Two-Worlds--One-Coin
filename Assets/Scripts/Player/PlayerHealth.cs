@@ -6,23 +6,22 @@ namespace Player
     public class PlayerHealth : MonoBehaviour
     {
         public LayerMask hitMask;
-    
-        public int currentHealth;  
+
+        public int currentHealth;
         public int maxHealth;
         public int invincibilityFrames;
-    
-        private SpriteRenderer _renderer;
+
+        //private SpriteRenderer _renderer;
         private Material _defaultMaterial;
         public Material hitMaterial;
-    
+
         private bool _invincible;
-        private int _currentShields; 
-    
+        private int _currentShields;
+
         private void Start()
         {
             currentHealth = maxHealth;
-            _renderer = GetComponentInChildren<SpriteRenderer>();
-            _defaultMaterial = _renderer.material;
+            _defaultMaterial = GetComponentInChildren<SpriteRenderer>().material;
         }
 
         public void RestoreHealth(int health)
@@ -67,17 +66,20 @@ namespace Player
         private void StartIFrames()
         {
             _invincible = true;
-            _renderer.material = hitMaterial;
-            Physics.IgnoreLayerCollision(gameObject.layer, hitMask, true);
+            GetComponentInChildren<SpriteRenderer>().material = hitMaterial;
+            Physics2D.IgnoreLayerCollision(gameObject.layer, PlayerEntity.Instance.bossMan.layer, true);
+            //Physics2D.IgnoreCollision(transform.GetComponent<Collider2D>(),
+            //    PlayerEntity.Instance.bossMan.GetComponent<Collider2D>(), true);
             Invoke(nameof(RestoreVulnerability), invincibilityFrames / 60.0f);
         }
 
         private void RestoreVulnerability()
         {
+            //Physics2D.IgnoreCollision(transform.GetComponent<Collider2D>(),
+            //   PlayerEntity.Instance.bossMan.GetComponent<Collider2D>(), false);
+            Physics2D.IgnoreLayerCollision(gameObject.layer, PlayerEntity.Instance.bossMan.layer, false);
+            GetComponentInChildren<SpriteRenderer>().material = _defaultMaterial;
             _invincible = false;
-            _renderer.material = _defaultMaterial;
-            Physics.IgnoreLayerCollision(gameObject.layer, hitMask, false);
-
         }
 
         private void Die()
