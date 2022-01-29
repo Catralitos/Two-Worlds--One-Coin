@@ -19,10 +19,7 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-
-        Debug.Log("POSITION: " + transform.position.x + " " + target.x);
         if(transform.position.x == target.x && transform.position.y == target.y){
-
             //DestroyProjectile();
         }
     }
