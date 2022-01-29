@@ -65,7 +65,7 @@ namespace Boss
                 if (hit.collider == null)
                 {
                     target.currentHealth -= target.hitDamage;
-                    target.healthBar.value = target.currentHealth;
+            //        target.healthBar.value = target.currentHealth;
                 }
 
                 falling = true;

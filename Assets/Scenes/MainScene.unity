@@ -1049,7 +1049,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959209227}
-  m_LocalRotation: {x: 0.010387084, y: 0.10305508, z: -0.001076231, w: 0.99462086}
+  m_LocalRotation: {x: 0.010387099, y: 0.1030551, z: -0.0010762328, w: 0.99462086}
   m_LocalPosition: {x: -2.54, y: 1.18, z: -9.298042}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1063,6 +1063,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1540544813768454360, guid: ba92accc0eb272249832ab6e23cf7c22, type: 3}
+      propertyPath: hitMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 7118158972651328056, guid: ba92accc0eb272249832ab6e23cf7c22, type: 3}
       propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -1139,6 +1143,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7118158972651328068, guid: ba92accc0eb272249832ab6e23cf7c22, type: 3}
+      propertyPath: bossMan
+      value: 
+      objectReference: {fileID: 1426702214}
     - target: {fileID: 7118158972651328068, guid: ba92accc0eb272249832ab6e23cf7c22, type: 3}
       propertyPath: realWorldSprite
       value: 
@@ -1663,6 +1671,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190577020}
   m_CullTransparentMesh: 1
+--- !u!1 &1426702214 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2587221343946412685, guid: 6878ad7771fd85d4881ba57988f3b41d, type: 3}
+  m_PrefabInstance: {fileID: 1811156324}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1568267118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1881,7 +1894,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1743201548}
-  m_LocalRotation: {x: 0.010387099, y: 0.1030551, z: -0.0010762328, w: 0.99462086}
+  m_LocalRotation: {x: 0.010387095, y: 0.10305513, z: -0.0010762328, w: 0.99462086}
   m_LocalPosition: {x: -2.54, y: 1.18, z: -9.298042}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2081,7 +2094,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2244,7 +2257,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1775447626}
-  m_LocalRotation: {x: 0.010387099, y: 0.1030551, z: -0.0010762328, w: 0.99462086}
+  m_LocalRotation: {x: 0.010387095, y: 0.10305513, z: -0.0010762328, w: 0.99462086}
   m_LocalPosition: {x: -2.54, y: 1.18, z: -9.298042}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2361,6 +2374,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2587221343500332325, guid: 6878ad7771fd85d4881ba57988f3b41d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2587221343946412681, guid: 6878ad7771fd85d4881ba57988f3b41d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2416,6 +2433,10 @@ PrefabInstance:
     - target: {fileID: 2587221343946412685, guid: 6878ad7771fd85d4881ba57988f3b41d, type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587221343946412685, guid: 6878ad7771fd85d4881ba57988f3b41d, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2587221343946412685, guid: 6878ad7771fd85d4881ba57988f3b41d, type: 3}
       propertyPath: m_IsActive
