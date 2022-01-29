@@ -9,6 +9,7 @@ public class CoinFlip : MonoBehaviour
     public TMPro.TextMeshProUGUI text;
     public ChangeCameraScript cameraManager;
     public Animator buttonAnimator;
+    public VisualCoinFlipper flipObject;
 
     public float flipCoinCooldown = 5.0f;
     private float flipCoinCooldownAux;
@@ -44,6 +45,7 @@ public class CoinFlip : MonoBehaviour
         {
             if (!pressedButton)
             {
+                flipObject.OnInteract();
 
                 var result = Random.Range(0, 2);
                 pressedButton = true;
