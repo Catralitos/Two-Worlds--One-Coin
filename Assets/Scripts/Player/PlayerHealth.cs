@@ -11,7 +11,7 @@ namespace Player
         public int maxHealth;
         public int invincibilityFrames;
     
-        private SpriteRenderer _renderer;
+        //private SpriteRenderer _renderer;
         private Material _defaultMaterial;
         public Material hitMaterial;
     
@@ -21,8 +21,7 @@ namespace Player
         private void Start()
         {
             currentHealth = maxHealth;
-            _renderer = GetComponentInChildren<SpriteRenderer>();
-            _defaultMaterial = _renderer.material;
+            _defaultMaterial = GetComponentInChildren<SpriteRenderer>().material;
         }
 
         public void RestoreHealth(int health)
@@ -67,7 +66,7 @@ namespace Player
         private void StartIFrames()
         {
             _invincible = true;
-            _renderer.material = hitMaterial;
+            GetComponentInChildren<SpriteRenderer>().material = hitMaterial;
             Physics.IgnoreLayerCollision(gameObject.layer, hitMask, true);
             Invoke(nameof(RestoreVulnerability), invincibilityFrames / 60.0f);
         }
@@ -75,7 +74,7 @@ namespace Player
         private void RestoreVulnerability()
         {
             _invincible = false;
-            _renderer.material = _defaultMaterial;
+            GetComponentInChildren<SpriteRenderer>().material = _defaultMaterial;
             Physics.IgnoreLayerCollision(gameObject.layer, hitMask, false);
 
         }
