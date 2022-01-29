@@ -6,6 +6,8 @@ namespace Boss{
     public class Boss : EnemyBase<Boss>
     {
 
+        public GameObject projectile;
+        
         public float TimeBetweenStates;
 
         public float jumpForce;
@@ -24,7 +26,7 @@ namespace Boss{
             protected override void Start()
             {
                 //animator = GetComponentInChildren<Animator>();
-                healthBar.value = currentHealth;
+                //healthBar.value = currentHealth;
                 rb = GetComponent<Rigidbody2D>();
                 state = IdleState.Create(this);
             }

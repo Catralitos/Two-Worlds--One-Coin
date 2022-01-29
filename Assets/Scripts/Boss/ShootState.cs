@@ -22,7 +22,7 @@ namespace Boss{
                 //play animation
 
                 if(timeBtwnShots <= 0){
-                    Instantiate(Resources.Load("Projectile"), new Vector2 (transform.position.x, transform.position.y), Quaternion.identity);
+                    Instantiate(target.projectile, new Vector2 (transform.position.x, transform.position.y), Quaternion.identity);
                     timeBtwnShots = startTimeBtwnShots;
                 } else{
                     timeBtwnShots -= Time.deltaTime;

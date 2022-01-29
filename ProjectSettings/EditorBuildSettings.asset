@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Carlos/TitleScreen.unity
+    path: Assets/Scenes/TitleScreen.unity
     guid: d95dc0faa5afd2248a5972fc28d84249
   - enabled: 1
-    path: Assets/Scenes/Manuel/MScenes/CameraChangeScene.unity
-    guid: 19ea68dc90205ce42815a7bd640eba51
+    path: Assets/Scenes/MainScene.unity
+    guid: 6415927538b883c4581a90bea4bd7af5
   - enabled: 1
-    path: Assets/Carlos/Credits.unity
+    path: Assets/Scenes/Credits.unity
     guid: cad1c952569932146854dafbc1aca091
   m_configObjects: {}

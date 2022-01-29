@@ -15,7 +15,7 @@ namespace Boss{
         // Start is called before the first frame update
         void Start()
         {
-            player = GameObject.FindGameObjectWithTag("Player").transform;
+            player = PlayerEntity.Instance.gameObject.transform;
             target = new Vector2(player.position.x, player.position.y);
 
             Vector2 movementVector = (transform.position - player.position).normalized * speed*Time.deltaTime;
@@ -27,7 +27,7 @@ namespace Boss{
             transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
             //transform.position += movementVector * Time.deltaTime;
 
-            Transform currentPlayerPos = GameObject.FindGameObjectWithTag("Player").transform;
+            Transform currentPlayerPos = PlayerEntity.Instance.gameObject.transform;
             if(transform.position.x == target.x && transform.position.y == target.y){
                 DestroyProjectile();
             }

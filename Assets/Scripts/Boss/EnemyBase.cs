@@ -21,10 +21,10 @@ namespace Boss
         public LayerMask wallMask;
 
         public LayerMask ceilingMask;
-        
+
         public int currentHealth;
         public int maxHealth;
-        
+
         public int contactDamage;
         private float _initialMass;
         private RigidbodyConstraints2D _initialConstraints;
@@ -37,55 +37,57 @@ namespace Boss
         public bool ceilingHit;
 
         public float horizontalVelocity;
-        
+
         protected virtual void Start()
         {
-            rb = GetComponent<Rigidbody2D>();            
+            rb = GetComponent<Rigidbody2D>();
             currentHealth = maxHealth;
-             _initialMass = rb.mass;
+            _initialMass = rb.mass;
             _initialConstraints = rb.constraints;
         }
 
-        public virtual void Hit(int damage){
-            
+        public virtual void Hit(int damage)
+        {
         }
-        
+
 
         public void Call(string messageName)
         {
             SendMessage(messageName);
         }
 
-        
+
         protected virtual void Die()
         {
             Destroy(gameObject);
         }
-        
+
 
         private void OnCollisionEnter2D(Collision2D other)
         {
             if (playerMask.HasLayer(other.gameObject.layer))
             {
-               
                 //PlayerEntity.Instance.Health.Hit(contactDamage);
                 rb.velocity = Vector2.zero;
                 rb.mass = 100000000000;
                 rb.constraints = RigidbodyConstraints2D.FreezeAll;
             }
 
-            if (groundMask.HasLayer(other.gameObject.layer)){
+            if (groundMask.HasLayer(other.gameObject.layer))
+            {
                 grounded = true;
             }
 
-            if (wallMask.HasLayer(other.gameObject.layer)){
-                if(other.gameObject.transform.position.x > transform.position.x)
+            if (wallMask.HasLayer(other.gameObject.layer))
+            {
+                if (other.gameObject.transform.position.x > transform.position.x)
                     wallHitRight = true;
                 else
                     wallHitLeft = true;
             }
-            
-            if (ceilingMask.HasLayer(other.gameObject.layer)){
+
+            if (ceilingMask.HasLayer(other.gameObject.layer))
+            {
                 ceilingHit = true;
             }
         }
@@ -97,18 +99,22 @@ namespace Boss
                 rb.constraints = _initialConstraints;
                 rb.mass = _initialMass;
             }
-             if (groundMask.HasLayer(other.gameObject.layer)){
-                 grounded = false;
+
+            if (groundMask.HasLayer(other.gameObject.layer))
+            {
+                grounded = false;
             }
-            
-             if (wallMask.HasLayer(other.gameObject.layer)){
-                if(other.gameObject.transform.position.x > transform.position.x)
+
+            if (wallMask.HasLayer(other.gameObject.layer))
+            {
+                if (other.gameObject.transform.position.x > transform.position.x)
                     wallHitRight = false;
                 else
                     wallHitLeft = false;
             }
-            
-            if (ceilingMask.HasLayer(other.gameObject.layer)){
+
+            if (ceilingMask.HasLayer(other.gameObject.layer))
+            {
                 ceilingHit = false;
             }
         }
@@ -123,8 +129,8 @@ namespace Boss
             Destroy(this.state);
             this.state = state;
         }
-        
-    
+
+
         public override void Hit(int damage)
         {
             if (isAlive)
@@ -160,6 +166,5 @@ namespace Boss
                 state.StateFixedUpdate();
             }
         }
-        
     }
 }
