@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     {       
     public Rigidbody2D theRB;
 
+    public Animator animator;
+
     // Dash
     public float dashDirection;
 
@@ -76,6 +78,12 @@ public class PlayerMovement : MonoBehaviour
             
             theRB.velocity = new Vector2(0f, theRB.velocity.y);
         }
+
+        animator.SetFloat("HorizontalSpeed", Mathf.Abs(inputX));
+
+        animator.SetBool("Grounded", isGrounded);
+
+        animator.SetFloat("VerticalSpeed", theRB.velocity.y);
 
         FlippingCoin();
 
