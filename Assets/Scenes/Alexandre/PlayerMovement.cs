@@ -30,8 +30,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         theRB.velocity = new Vector2(inputX * currentMoveSpeed, theRB.velocity.y);
-
-        
+    
     }
     public void Move(InputAction.CallbackContext context)
     {
@@ -40,9 +39,12 @@ public class PlayerMovement : MonoBehaviour
         
     public void Jump(InputAction.CallbackContext context)
     {
+        if (context.performed){
+
+        
         if (isGrounded){
             theRB.velocity = new Vector2(theRB.velocity.x, currentJumpPower);
-        }
+        }}
     }
 }
 
