@@ -32,7 +32,9 @@ namespace Boss
                 direction = "right";
             }
 
-            target.checkDirection();
+            if((direction == "right" && !target.facingRight) || (direction == "left" && target.facingRight))
+                target.Flip();
+
 
         }
 
@@ -75,7 +77,7 @@ namespace Boss
             {
                 if (hit.collider == null)
                 {
-                    target.currentHealth -= target.hitDamage;
+                    target.Hit(target.hitDamage);
                     //target.healthBar.value = target.currentHealth;
                 }
 
