@@ -96,5 +96,18 @@ namespace WorldChange
                 yield return null;
             }
         }
+
+        public void PlayAgain()
+        {
+            var manager = GameObject.FindObjectOfType<GameManager>();
+           if (manager != null)
+                manager.RestartGame();
+
+            else UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+
+        }
     }
+
+
+   
 }

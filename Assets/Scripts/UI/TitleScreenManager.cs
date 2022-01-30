@@ -53,8 +53,9 @@ namespace UI
             tutorialScreen.SetActive(true);
         }
 
-        private void HideTutorial()
+        public void HideTutorial()
         {
+            Debug.Log("Entrou no hide tutorial");
             tutorialScreen.SetActive(false);
             titleScreen.SetActive(true);
         }
