@@ -1,11 +1,11 @@
 using UnityEngine;
-
 namespace WorldChange
 {
     public class ChangeCameraScript : MonoBehaviour
     {
         // Start is called before the first frame update
 
+        public GameObject Bag;
         public Cinemachine.CinemachineVirtualCamera realWorldCamera;
 
         public Cinemachine.CinemachineVirtualCamera fakeWorldCamera;
@@ -61,7 +61,6 @@ namespace WorldChange
         }
         void ChangetoRealWorld()
         {
-        
             realWorldCamera.Priority = 10;
             realWorldCameraActive = true;
         }

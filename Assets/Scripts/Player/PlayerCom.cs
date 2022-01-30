@@ -42,7 +42,7 @@ namespace Player
 
         void Attack()
         {
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, projectileLayers + bagLayer);
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, projectileLayers);
 
             foreach(Collider2D enemy in hitEnemies)
             {
@@ -50,10 +50,6 @@ namespace Player
                     Debug.Log("Acertou um projetil");
                 }
 
-                if (bagLayer.HasLayer(enemy.gameObject.layer))
-                {
-                    enemy.gameObject.GetComponent<PowerUpBag>().SpawnPowerUp();
-                }
             }
         }
 
