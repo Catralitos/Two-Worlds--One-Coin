@@ -19,6 +19,7 @@ namespace Boss
             base.StateStart();
             t = 0;
 
+
             player = PlayerEntity.Instance.gameObject.transform.position;
             if (player.x < transform.position.x || target.wallHitRight)
             {
@@ -41,18 +42,21 @@ namespace Boss
 
             if (!onAir)
             {
+                target.animator.Play("Base Layer.IntroAirDash", 0, 0.0f);
                 onAir = true;
                 target.rb.velocity = Vector2.up * target.ceilingJump;
             }
 
-            if (falling && target.grounded)
+            if (falling && target.grounded){
                 SetState(IdleState.Create(target));
+            }
 
             if (falling)
                 return;
 
             if (target.ceilingHit)
             {
+                target.animator.Play("Base Layer.Dash", 0, 0.0f);
                 target.rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                 target.rb.velocity = new Vector2(currentHorizontalVelocity * target.dashSpeed, target.rb.velocity.y);
             }
@@ -72,6 +76,7 @@ namespace Boss
                     //target.healthBar.value = target.currentHealth;
                 }
 
+                target.animator.Play("Base Layer.ExitAirDash", 0, 0.0f);
                 falling = true;
 
                 target.rb.constraints = RigidbodyConstraints2D.FreezeRotation;

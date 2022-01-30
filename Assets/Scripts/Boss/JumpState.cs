@@ -12,6 +12,7 @@ namespace Boss{
         float maxHeight = 1.0f;
             
             public override void StateStart(){
+                target.animator.Play("Base Layer.Jump", 0, 0.0f);
                 base.StateStart();
                 player = PlayerEntity.Instance.gameObject.transform.position;
                 if(player.x < transform.position.x)

@@ -4,9 +4,9 @@ namespace Boss{
     public class IdleState : BossState
     {
         float t = 0;
-
             public override void StateStart(){
-            // target.animator.SetTrigger("idle");
+                
+                target.animator.Play("Base Layer.Idle", 0, 0.0f);
                 base.StateStart();
                 t = 0;
                 target.rb.velocity = Vector2.zero;

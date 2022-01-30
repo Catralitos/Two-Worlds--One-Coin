@@ -38,9 +38,12 @@ namespace Boss
 
         public float horizontalVelocity;
 
+        public Animator animator;
+
         protected virtual void Start()
         {
             rb = GetComponent<Rigidbody2D>();
+            animator = GetComponentInChildren<Animator>();
             currentHealth = maxHealth;
             _initialMass = rb.mass;
             _initialConstraints = rb.constraints;

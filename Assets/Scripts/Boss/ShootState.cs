@@ -12,7 +12,7 @@ namespace Boss{
                 base.StateStart();
                 t = 0;
                 timeBtwnShots = startTimeBtwnShots;
-
+                target.animator.Play("Base Layer.IntroShoot", 0, 0.0f);
             }
 
             public override void StateUpdate()
@@ -22,6 +22,7 @@ namespace Boss{
                 //play animation
 
                 if(timeBtwnShots <= 0){
+                    target.animator.Play("Base Layer.Shoot", 0, 0.0f);
                     Instantiate(target.projectile, new Vector2 (transform.position.x, transform.position.y), Quaternion.identity);
                     timeBtwnShots = startTimeBtwnShots;
                 } else{
