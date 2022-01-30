@@ -5,11 +5,16 @@ namespace Player
     public class PlayerPowerUps : MonoBehaviour
     {
         public int healthBoost;
+        
         public int shields;
-
+        public int maxShields;
+        
         public float dashTime;
+        public float maxDashTime;
         public float jumpTime;
+        public float maxJumpTime;
         public float speedTime;
+        public float maxSpeedTime;
 
         public float jumpBoost;
         public float speedBoost;
@@ -20,15 +25,15 @@ namespace Player
         [HideInInspector] public int jumpsToTrigger;
         [HideInInspector] public int speedsToTrigger;
 
-        private float _dashTimeRemaining;
-        private float _jumpBoostRemaining;
-        private float _speedBoostRemaining;
+        [HideInInspector] public float dashTimeRemaining;
+        [HideInInspector] public float jumpBoostRemaining;
+        [HideInInspector] public float speedBoostRemaining;
 
-        private bool inSurrealWorld;
+        private bool _inSurrealWorld;
 
         public void SwitchToNightmare()
         {
-            inSurrealWorld = true;
+            _inSurrealWorld = true;
 
             for (int i = 0; i < healthsToTrigger; i++)
             {
@@ -42,17 +47,17 @@ namespace Player
 
             for (int i = 0; i < dashesToTrigger; i++)
             {
-                _dashTimeRemaining = _dashTimeRemaining > 0.0f ? _dashTimeRemaining + dashTime : dashTime;
+                dashTimeRemaining = Mathf.Clamp(dashTimeRemaining + dashTime, 0, maxDashTime);
             }
 
             for (int i = 0; i < jumpsToTrigger; i++)
             {
-                _jumpBoostRemaining = _jumpBoostRemaining > 0.0f ? _jumpBoostRemaining + jumpTime : jumpTime;
+                jumpBoostRemaining = Mathf.Clamp(jumpBoostRemaining + jumpTime, 0, maxJumpTime);
             }
 
             for (int i = 0; i < speedsToTrigger; i++)
             {
-                _speedBoostRemaining = _speedBoostRemaining > 0.0f ? _speedBoostRemaining + speedTime : speedTime;
+                speedBoostRemaining = Mathf.Clamp(speedBoostRemaining + speedTime, 0, maxSpeedTime);
             }
 
             healthsToTrigger = 0;
@@ -66,18 +71,18 @@ namespace Player
         {
             PlayerMovement movement = PlayerEntity.Instance.Movement;
 
-            if (inSurrealWorld)
+            if (_inSurrealWorld)
             {
-                _dashTimeRemaining -= Time.deltaTime;
-                _jumpBoostRemaining -= Time.deltaTime;
-                _speedBoostRemaining -= Time.deltaTime;
+                dashTimeRemaining -= Time.deltaTime;
+                jumpBoostRemaining -= Time.deltaTime;
+                speedBoostRemaining -= Time.deltaTime;
 
 
-                movement.canDash = _dashTimeRemaining > 0.0f;
+                movement.canDash = dashTimeRemaining > 0.0f;
                 movement.currentJumpPower =
-                    _jumpBoostRemaining > 0.0f ? movement.jumpPower * jumpBoost : movement.jumpPower;
+                    jumpBoostRemaining > 0.0f ? movement.jumpPower * jumpBoost : movement.jumpPower;
                 movement.currentMoveSpeed =
-                    _speedBoostRemaining > 0.0f ? movement.moveSpeed * speedBoost : movement.moveSpeed;
+                    speedBoostRemaining > 0.0f ? movement.moveSpeed * speedBoost : movement.moveSpeed;
             }
             else
             {
