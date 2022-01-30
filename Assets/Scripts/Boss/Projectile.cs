@@ -18,16 +18,16 @@ namespace Boss{
             Vector3 target = PlayerEntity.Instance.gameObject.transform.position;
             _movementVector = (target - transform.position).normalized;
 
-            if (_movementVector.x > 0)
+            if (_movementVector.x < 0)
             {
-                this.transform.Rotate(0.0f, 0.0f, 38.0f);
-                //this.GetComponent<SpriteRenderer>().flipX = false;
+             
+                this.GetComponent<SpriteRenderer>().flipX = false;
 
             }
             else
             {
-                this.transform.Rotate(0.0f, 0.0f, -218.0f);
-                // this.GetComponent<SpriteRenderer>().flipX = true;
+              
+                this.GetComponent<SpriteRenderer>().flipX = true;
 
             }
         }
