@@ -58,7 +58,7 @@ namespace Boss
             }
         }
 
-        public static DashState Create(Boss target){
+        public static DashState Create(BossEnemy target){
             return BossState.Create<DashState>(target);
         }
     }

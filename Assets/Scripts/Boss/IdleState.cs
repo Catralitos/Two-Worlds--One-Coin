@@ -33,7 +33,7 @@ namespace Boss{
                 }
             }
 
-            public static IdleState Create(Boss target)
+            public static IdleState Create(BossEnemy target)
             {
                 return BossState.Create<IdleState>(target);
             }
