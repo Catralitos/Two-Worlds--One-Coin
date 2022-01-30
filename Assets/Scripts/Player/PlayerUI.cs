@@ -16,6 +16,7 @@ namespace Player
         public Image jumpBuff;
         public Image speedBuff;
 
+        
         public Image bossHealthBar;
 
         private void Update()
@@ -41,7 +42,7 @@ namespace Player
                 }
                 else
                 {
-                    shields[i].gameObject.SetActive(true);
+                    shields[i].gameObject.SetActive(false);
                 }
             }
 

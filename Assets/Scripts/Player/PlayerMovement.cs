@@ -30,7 +30,7 @@ namespace Player
 
         // Speed
         public float moveSpeed = 5;
-        [HideInInspector] public float currentMoveSpeed = 5;
+        public float currentMoveSpeed = 5;
 
         // Salto
         public float jumpPower = 5;

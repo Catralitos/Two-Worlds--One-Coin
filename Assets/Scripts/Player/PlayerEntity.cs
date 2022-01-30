@@ -50,16 +50,19 @@ namespace Player
                 
                 // How cool is this null checker?
                 FindObjectOfType<GameManager>()?.ChangeSong("Hell");
+                PowerUps.SwitchToNightmare();
 
             } else if (surrealWorldSprite.activeSelf)
-            {
+            {   
+                PowerUps.SwitchToReal();
+                bossMan.SetActive(false);
                 surrealWorldSprite.SetActive(false);
                 realWorldSprite.SetActive(true);
                 this.transform.position += new Vector3(-x_Distance, 0.0f, 0.0f);
-                bossMan.SetActive(false);
                 FindObjectOfType<GameManager>()?.ChangeSong("Lidl");
                 
                 Bag.SpawnTwoPU();
+                
             }
 
             Movement.animator = GetComponentInChildren<Animator>();

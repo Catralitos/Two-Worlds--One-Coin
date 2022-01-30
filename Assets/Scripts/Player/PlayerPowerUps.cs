@@ -5,10 +5,10 @@ namespace Player
     public class PlayerPowerUps : MonoBehaviour
     {
         public int healthBoost;
-        
+
         public int shields;
         public int maxShields;
-        
+
         public float dashTime;
         public float maxDashTime;
         public float jumpTime;
@@ -19,12 +19,12 @@ namespace Player
         public float jumpBoost;
         public float speedBoost;
 
+
         [HideInInspector] public int healthsToTrigger;
         [HideInInspector] public int shieldsToTrigger;
         [HideInInspector] public int dashesToTrigger;
         [HideInInspector] public int jumpsToTrigger;
         [HideInInspector] public int speedsToTrigger;
-
         [HideInInspector] public float dashTimeRemaining;
         [HideInInspector] public float jumpBoostRemaining;
         [HideInInspector] public float speedBoostRemaining;
@@ -47,17 +47,17 @@ namespace Player
 
             for (int i = 0; i < dashesToTrigger; i++)
             {
-                dashTimeRemaining = Mathf.Clamp(dashTimeRemaining + dashTime, 0, maxDashTime);
+                dashTimeRemaining = dashTimeRemaining <= 0 ? dashTime : dashTimeRemaining + dashTime;
             }
 
             for (int i = 0; i < jumpsToTrigger; i++)
             {
-                jumpBoostRemaining = Mathf.Clamp(jumpBoostRemaining + jumpTime, 0, maxJumpTime);
+                jumpBoostRemaining = jumpBoostRemaining <= 0 ? jumpTime : jumpBoostRemaining + jumpTime;
             }
 
             for (int i = 0; i < speedsToTrigger; i++)
             {
-                speedBoostRemaining = Mathf.Clamp(speedBoostRemaining + speedTime, 0, maxSpeedTime);
+                speedBoostRemaining = speedBoostRemaining <= 0 ? speedTime : speedBoostRemaining + speedTime;
             }
 
             healthsToTrigger = 0;
@@ -65,6 +65,11 @@ namespace Player
             dashesToTrigger = 0;
             jumpsToTrigger = 0;
             speedsToTrigger = 0;
+        }
+
+        public void SwitchToReal()
+        {
+            _inSurrealWorld = false;
         }
 
         private void Update()
