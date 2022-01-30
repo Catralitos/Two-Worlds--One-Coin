@@ -7,6 +7,7 @@ namespace Boss{
         private float timeBtwnShots;
         public float startTimeBtwnShots = 0.5f; 
         public float t = 0;
+
         // Start is called before the first frame update
         public override void StateStart(){
             // target.animator.SetTrigger("shoot");
@@ -16,6 +17,8 @@ namespace Boss{
 
                 target.animator.Play("Base Layer.IntroShoot", 0, 0.0f);
                 target.checkDirection();
+
+                target.audioData.PlayOneShot(target.laugh, 0.7F);
             }
 
             public override void StateUpdate()
