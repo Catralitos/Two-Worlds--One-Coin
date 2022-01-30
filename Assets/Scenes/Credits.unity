@@ -646,26 +646,27 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Credits:
 
+    BatsAlice - Art
+
     Catralitos - Programming
+
+    Crashim_06
+    - Programming
 
     Karane - Programming
 
-    TheDarkRyze
-    - Programming
-
-    Alex - Programming
-
-    Liza - Art
+    TheDarkRyze - Programming
 
 
-    Made by Gamedev Tecnico
+    Made
+    by Gamedev Tecnico
 
-    Assets
-    Used:
+    Assets Used:
 
     Fibberish Font by @caffi_nate
 
-    Pixel Buttons Set by @egordorichev'
+    Pixel
+    Buttons Set by @egordorichev'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 17ea414865dc24d4395d7783881cc334, type: 2}
   m_sharedMaterial: {fileID: 6167020530195563741, guid: 17ea414865dc24d4395d7783881cc334, type: 2}
