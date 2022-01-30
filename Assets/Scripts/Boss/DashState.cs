@@ -30,7 +30,8 @@ namespace Boss
                 direction = "right";
             }
 
-            target.checkDirection();
+            if((direction == "right" && !target.facingRight) || (direction == "left" && target.facingRight))
+                target.Flip();
         }
 
         public override void StateUpdate()
@@ -40,23 +41,24 @@ namespace Boss
             if (t < 2)
                 return;
 
+
             target.rb.constraints = RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
             target.animator.Play("Base Layer.Dash", 0, 0.0f);
             target.rb.velocity = new Vector2(currentHorizontalVelocity * target.dashSpeed, target.rb.velocity.y);
 
             if ((target.wallHitRight && direction == "right") || (target.wallHitLeft && direction == "left"))
             {
-                target.currentHealth -= target.hitDamage;
+                target.Hit(target.hitDamage);
                 //   target.healthBar.value = target.currentHealth;
                 target.rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 target.rb.velocity = Vector2.zero;
                 target.animator.Play("Base Layer.ExitDash", 0, 0.0f);
+                
                 SetState(DashAirState.Create(target));
             }
         }
 
-        public static DashState Create(Boss target)
-        {
+        public static DashState Create(Boss target){
             return BossState.Create<DashState>(target);
         }
     }

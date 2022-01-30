@@ -527,7 +527,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584014062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.54, y: -3, z: 0}
+  m_LocalPosition: {x: 21.93, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1341849340}
@@ -1410,6 +1410,14 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 59586223}
+    - target: {fileID: 2587221343946412686, guid: 6878ad7771fd85d4881ba57988f3b41d, type: 3}
+      propertyPath: hitDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587221343946412686, guid: 6878ad7771fd85d4881ba57988f3b41d, type: 3}
+      propertyPath: contactDamage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2985222293725133521, guid: 6878ad7771fd85d4881ba57988f3b41d, type: 3}
       propertyPath: m_RootOrder
       value: 4
