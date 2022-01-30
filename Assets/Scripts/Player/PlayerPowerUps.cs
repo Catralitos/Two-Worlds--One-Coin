@@ -81,7 +81,7 @@ namespace Player
             }
             else
             {
-               // movement.canDash = false;
+                movement.canDash = false;
                 movement.currentJumpPower = movement.jumpPower;
                 movement.currentMoveSpeed = movement.moveSpeed;
             }
