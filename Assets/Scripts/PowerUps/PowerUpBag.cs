@@ -30,7 +30,11 @@ namespace PowerUps
                 (Quaternion.Euler(0, 0, randomAngle) * Vector2.up).normalized * fireSpeed;
         }
 
-            
+        public void SpawnTwoPU()
+        {
+            Invoke("SpawnPowerUp", 2f);
+            Invoke("SpawnPowerUp", 3f);
+        }
         
     }
 }
