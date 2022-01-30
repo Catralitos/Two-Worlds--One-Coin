@@ -21,18 +21,43 @@ public class GameManager : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void ChangeSong(string s)
     {
         var playing = audioManager.GetIsPlaying();
         if (playing != null)
             audioManager.PauseAudio(playing);
-        Debug.Log("Play: " + s);
         audioManager.UnPauseAudio(s);
     }
+
+
+    public void RestartGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
+    public void RIP()
+    {
+        GameObject.FindObjectOfType<GameOverHandler>()?.LoseGame();
+    }
+
+    private IEnumerator HandleDeath()
+    {
+        
+        var cooldown = 0.0f;
+
+            while (true)
+            {
+                cooldown += Time.deltaTime;
+
+              /*  if (cooldown >= flipCoinCooldown)
+                {
+                    pressedButton = false;
+                    StopCoroutine("Cooldown");
+                }
+              */
+                yield return null;
+            }
+       
+    }
+
 }

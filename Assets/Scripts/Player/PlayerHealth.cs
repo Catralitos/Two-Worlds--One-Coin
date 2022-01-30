@@ -79,7 +79,9 @@ namespace Player
 
         private void Die()
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            Time.timeScale = 0;
+            FindObjectOfType<GameManager>()?.RIP();
         }
     }
 }
