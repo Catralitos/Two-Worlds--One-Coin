@@ -25,11 +25,15 @@ namespace Boss{
         public Slider healthBar;
 
         public Transform player;
+
+        [HideInInspector] public AudioSource audioData;
+        public AudioClip laugh;
             protected override void Start()
             {
                 //animator = GetComponentInChildren<Animator>();
                 //healthBar.value = currentHealth;
                 rb = GetComponent<Rigidbody2D>();
+                audioData = GetComponentInChildren<AudioSource>();
                 state = IdleState.Create(this);
             }
 
