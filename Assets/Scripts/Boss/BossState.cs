@@ -1,10 +1,10 @@
 namespace Boss{
-    public abstract class BossState : EnemyState<Boss>
+    public abstract class BossState : EnemyState<BossEnemy>
     {
 
-        protected static new T Create<T>(Boss target) where T : BossState
+        protected static new T Create<T>(BossEnemy target) where T : BossState
             {
-                T state = EnemyState<Boss>.Create<T>(target);
+                T state = EnemyState<BossEnemy>.Create<T>(target);
                 
                 return state;
             }

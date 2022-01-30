@@ -38,7 +38,7 @@ namespace Boss{
                 }
             }
 
-            public static JumpState Create(Boss target)
+            public static JumpState Create(BossEnemy target)
             {
                 return BossState.Create<JumpState>(target);
             }

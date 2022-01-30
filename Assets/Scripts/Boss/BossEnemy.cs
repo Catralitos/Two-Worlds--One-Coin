@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Boss{
 
-    public class Boss : EnemyBase<Boss>
+    public class BossEnemy : EnemyBase<BossEnemy>
     {
 
         public GameObject projectile;
