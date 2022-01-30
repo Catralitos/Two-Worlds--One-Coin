@@ -58,5 +58,27 @@ namespace Audio
 
             return null;
         }
+
+        public void PauseAudio(string name)
+        {
+            Sound s = Array.Find(sounds, sound => sound.name == name);
+            if (s == null || s.source == null)
+            {
+                Debug.LogWarning("Sound " + name + " not found!");
+                return;
+            }
+            if (isPlaying(s.name)) s.source.Pause();
+        }
+
+        public void UnPauseAudio(string name)
+        {
+            Sound s = Array.Find(sounds, sound => sound.name == name);
+            if (s == null || s.source == null)
+            {
+                Debug.LogWarning("Sound " + name + " not found!");
+                return;
+            }
+           s.source.UnPause();
+        }
     }
 }

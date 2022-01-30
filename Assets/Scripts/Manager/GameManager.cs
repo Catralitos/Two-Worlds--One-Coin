@@ -9,11 +9,16 @@ public class GameManager : MonoBehaviour
 
     AudioManager audioManager;
     public string startSongName;
+    public string hellSong;
     void Start()
     {
         DontDestroyOnLoad(transform.gameObject);
         audioManager = this.GetComponent<Audio.AudioManager>();
+        audioManager.Play(hellSong);
+        audioManager.PauseAudio(hellSong);
         audioManager.Play(startSongName);
+
+
     }
 
     // Update is called once per frame
@@ -26,8 +31,8 @@ public class GameManager : MonoBehaviour
     {
         var playing = audioManager.GetIsPlaying();
         if (playing != null)
-            audioManager.Stop(playing);
+            audioManager.PauseAudio(playing);
         Debug.Log("Play: " + s);
-        audioManager.Play(s);
+        audioManager.UnPauseAudio(s);
     }
 }
