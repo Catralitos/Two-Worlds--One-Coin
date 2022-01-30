@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         var playing = audioManager.GetIsPlaying();
         if (playing != null)
             audioManager.Stop(playing);
-
+        Debug.Log("Play: " + s);
         audioManager.Play(s);
     }
 }
