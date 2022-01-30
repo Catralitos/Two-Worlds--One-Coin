@@ -37,7 +37,7 @@ namespace Player
         {
             if (hitMask.HasLayer(other.gameObject.layer))
             {
-                Hit(other.gameObject.GetComponent<Boss.Boss>().contactDamage);
+                Hit(other.gameObject.GetComponent<Boss.BossEnemy>().contactDamage);
             }
         }
 
