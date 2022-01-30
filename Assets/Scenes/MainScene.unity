@@ -714,6 +714,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 237779443}
     m_Modifications:
+    - target: {fileID: 6326677148284262774, guid: 3f9f74c480721684a83475444f57b9ca, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6326677149722074054, guid: 3f9f74c480721684a83475444f57b9ca, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1914,14 +1918,6 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[14].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 590739017}
-    - target: {fileID: 7118158972651328059, guid: ba92accc0eb272249832ab6e23cf7c22, type: 3}
-      propertyPath: jumpBoost
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7118158972651328059, guid: ba92accc0eb272249832ab6e23cf7c22, type: 3}
-      propertyPath: speedBoost
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7118158972651328060, guid: ba92accc0eb272249832ab6e23cf7c22, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3509,6 +3505,14 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1426702215}
+    - target: {fileID: 2587221343946412686, guid: 6878ad7771fd85d4881ba57988f3b41d, type: 3}
+      propertyPath: hitDamage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587221343946412686, guid: 6878ad7771fd85d4881ba57988f3b41d, type: 3}
+      propertyPath: contactDamage
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4508763828304499457, guid: 6878ad7771fd85d4881ba57988f3b41d, type: 3}
       propertyPath: m_SortingOrder
       value: -1

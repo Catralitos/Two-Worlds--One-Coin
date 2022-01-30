@@ -32,8 +32,9 @@ namespace Player
 
 
             healthBar.fillAmount = health.currentHealth / (float) health.maxHealth;
-            bossHealthBar.fillAmount = bossScript != null ? bossScript.currentHealth / bossScript.maxHealth : 1;
-
+            bossHealthBar.fillAmount = bossScript != null ? bossScript.currentHealth / (float) bossScript.maxHealth : 1;
+          
+            
             for (int i = 0; i < shields.Count; i++)
             {
                 if (i < shieldsCollected)

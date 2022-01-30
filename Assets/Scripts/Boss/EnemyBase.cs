@@ -140,6 +140,7 @@ namespace Boss
         {
             if (isAlive)
             {
+                Debug.Log("HIT BOSS");
                 currentHealth = Mathf.Max(currentHealth - damage, 0);
                 //state.OnGetHit();
                 if (!IsAlive) Die();
