@@ -10,13 +10,14 @@ namespace PowerUps
         public float minFireAngle;
         public float maxFireAngle;
         public Transform spawnPoint;
+
+        private float time;
     
         public List<GameObject> powerUpPrefabs;
 
         public void Start()
         {
-            //só para testes
-            //InvokeRepeating(nameof(SpawnPowerUp), 3f, 3f);
+
         }
 
         public void SpawnPowerUp()
@@ -28,5 +29,12 @@ namespace PowerUps
             spawned.GetComponent<Rigidbody2D>().velocity =
                 (Quaternion.Euler(0, 0, randomAngle) * Vector2.up).normalized * fireSpeed;
         }
+
+        public void SpawnTwoPU()
+        {
+            Invoke("SpawnPowerUp", 2f);
+            Invoke("SpawnPowerUp", 3f);
+        }
+        
     }
 }

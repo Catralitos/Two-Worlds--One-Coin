@@ -1,4 +1,5 @@
 using UnityEngine;
+using PowerUps;
 
 namespace Player
 {
@@ -12,6 +13,8 @@ namespace Player
         public GameObject realWorldSprite;
         public GameObject surrealWorldSprite;
         public GameObject bossMan;
+
+        public PowerUpBag Bag;
         public float x_Distance = 15;
      
         
@@ -55,6 +58,8 @@ namespace Player
                 this.transform.position += new Vector3(-x_Distance, 0.0f, 0.0f);
                 bossMan.SetActive(false);
                 FindObjectOfType<GameManager>()?.ChangeSong("Lidl");
+                
+                Bag.SpawnTwoPU();
             }
 
             Movement.animator = GetComponentInChildren<Animator>();
