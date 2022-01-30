@@ -44,14 +44,17 @@ namespace Player
                 surrealWorldSprite.SetActive(true);
                 this.transform.position += new Vector3(x_Distance, 0.0f, 0.0f);
                 bossMan.SetActive(true);
-
+                FindObjectOfType<GameManager>().ChangeSong("Hell");
             } else if (surrealWorldSprite.activeSelf)
             {
                 surrealWorldSprite.SetActive(false);
                 realWorldSprite.SetActive(true);
                 this.transform.position += new Vector3(-x_Distance, 0.0f, 0.0f);
                 bossMan.SetActive(false);
+                FindObjectOfType<GameManager>().ChangeSong("Lidl");
             }
+
+            Movement.animator = GetComponentInChildren<Animator>();
         }
     }
 }

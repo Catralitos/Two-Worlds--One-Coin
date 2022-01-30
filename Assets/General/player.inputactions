@@ -51,15 +51,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Flip Coin End",
-                    "type": "Button",
-                    "id": "d56a047d-c4bb-41f3-aae9-4d84b693adca",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Dash",
                     "type": "Button",
                     "id": "9eede156-0b5c-48b5-b26d-44ef28e8271f",
@@ -318,17 +309,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Flip Coin Start",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "4f6b8312-3be7-4f5e-8d56-3838806c134f",
-                    "path": "<Keyboard>/c",
-                    "interactions": "Press(behavior=1)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Flip Coin End",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
