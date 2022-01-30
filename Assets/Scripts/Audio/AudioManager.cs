@@ -47,5 +47,16 @@ namespace Audio
             }
             return s.IsPlaying();
         }
+
+        public string GetIsPlaying()
+        {
+            foreach(var s in sounds)
+            {
+                if (s.IsPlaying())
+                    return s.name;
+            }
+
+            return null;
+        }
     }
 }
