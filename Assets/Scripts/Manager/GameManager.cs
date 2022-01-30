@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        Time.timeScale = 1;
     }
 
     public void RIP()

@@ -65,7 +65,8 @@ namespace Boss
 
         protected virtual void Die()
         {
-            Destroy(gameObject);
+            FindObjectOfType<GameOverHandler>()?.WinGame();
+            Time.timeScale = 0;
         }
 
 

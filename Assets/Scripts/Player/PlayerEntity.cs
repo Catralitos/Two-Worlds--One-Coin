@@ -13,6 +13,7 @@ namespace Player
         public GameObject realWorldSprite;
         public GameObject surrealWorldSprite;
         public GameObject bossMan;
+        public GameObject surrealUI;
 
         public PowerUpBag Bag;
         public float x_Distance = 15;
@@ -46,26 +47,42 @@ namespace Player
                 realWorldSprite.SetActive(false);
                 surrealWorldSprite.SetActive(true);
                 this.transform.position += new Vector3(x_Distance, 0.0f, 0.0f);
-                bossMan.SetActive(true);
+               // bossMan.SetActive(true);
                 
                 // How cool is this null checker?
                 FindObjectOfType<GameManager>()?.ChangeSong("Hell");
+                surrealUI.SetActive(true);
                 PowerUps.SwitchToNightmare();
+                
+                ActivateBoss();
 
             } else if (surrealWorldSprite.activeSelf)
             {   
                 PowerUps.SwitchToReal();
-                bossMan.SetActive(false);
+              //  bossMan.SetActive(false);
                 surrealWorldSprite.SetActive(false);
                 realWorldSprite.SetActive(true);
                 this.transform.position += new Vector3(-x_Distance, 0.0f, 0.0f);
                 FindObjectOfType<GameManager>()?.ChangeSong("Lidl");
-                
+                surrealUI.SetActive(false);
                 Bag.SpawnTwoPU();
+
                 
             }
 
             Movement.animator = GetComponentInChildren<Animator>();
+        }
+
+        public void DisableBoss()
+        {
+
+            bossMan.SetActive(false);
+        }
+
+        public void ActivateBoss()
+        {
+            if(surrealWorldSprite.activeSelf)
+                bossMan.SetActive(true);
         }
     }
 }

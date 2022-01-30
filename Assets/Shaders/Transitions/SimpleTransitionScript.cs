@@ -55,6 +55,10 @@ public class SimpleTransitionScript : MonoBehaviour
             state = 1;
             this.GetComponent<Image>().color = new Color(0.0f, 0.0f, 0.0f, 1.0f); ;
         }
+
+        PlayerEntity.Instance.DisableBoss();
+
+        
     }
 
     public void Intermission()
