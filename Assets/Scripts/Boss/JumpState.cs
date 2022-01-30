@@ -12,18 +12,16 @@ namespace Boss{
         float maxHeight = 1.0f;
             
             public override void StateStart(){
-                target.animator.Play("Base Layer.Jump", 0, 0.0f);
                 base.StateStart();
+                
                 player = PlayerEntity.Instance.gameObject.transform.position;
                 if(player.x < transform.position.x)
                     currentHorizontalVelocity = -target.horizontalVelocity;
                 else
                     currentHorizontalVelocity = target.horizontalVelocity;
 
-                //target.animator.SetTrigger("jump");
-                //target.rb.AddForce((Vector2.up + Vector2.right*player.x).normalized*target.jumpForce);
-
-
+                target.animator.Play("Base Layer.Jump", 0, 0.0f);
+                target.checkDirection();
                 target.rb.velocity = Vector2.up*target.jumpForce;
 
             }

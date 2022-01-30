@@ -20,9 +20,8 @@ namespace Boss{
             public override void StateUpdate()
             {
                 t += Time.deltaTime;
-                //TODO
-                //textField.text = $"Ping {string.Format("{0:0.00}", t)}";
-                //play animation
+             
+                target.checkDirection();
 
                 if (t > target.TimeBetweenStates)
                 {

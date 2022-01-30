@@ -23,6 +23,8 @@ namespace Boss{
         public int ceilingJump;
 
         public Slider healthBar;
+
+        public Transform player;
             protected override void Start()
             {
                 //animator = GetComponentInChildren<Animator>();

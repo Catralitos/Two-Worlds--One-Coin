@@ -1,5 +1,6 @@
 using Extensions;
 using UnityEngine;
+using Player;
 
 namespace Boss
 {
@@ -25,6 +26,8 @@ namespace Boss
         public int currentHealth;
         public int maxHealth;
 
+        public bool facingRight = false;
+
         public int contactDamage;
         private float _initialMass;
         private RigidbodyConstraints2D _initialConstraints;
@@ -43,7 +46,7 @@ namespace Boss
         protected virtual void Start()
         {
             rb = GetComponent<Rigidbody2D>();
-            animator = GetComponentInChildren<Animator>();
+            animator = GetComponent<Animator>();
             currentHealth = maxHealth;
             _initialMass = rb.mass;
             _initialConstraints = rb.constraints;
@@ -167,6 +170,19 @@ namespace Boss
 
                 state.StateFixedUpdate();
             }
+        }
+
+        public void checkDirection(){
+            Vector3 player = PlayerEntity.Instance.gameObject.transform.position;
+            if((player.x < transform.position.x && facingRight) || (player.x > transform.position.x && !facingRight))
+                Flip();
+        }
+           public void Flip()
+        {
+            facingRight = ! facingRight;
+            Vector3 scale = transform.localScale;
+            scale.x *= -1;
+            transform.localScale = scale;
         }
     }
 }

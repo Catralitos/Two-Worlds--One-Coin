@@ -29,6 +29,8 @@ namespace Boss
                 currentHorizontalVelocity = target.horizontalVelocity;
                 direction = "right";
             }
+
+            target.checkDirection();
         }
 
         public override void StateUpdate()
