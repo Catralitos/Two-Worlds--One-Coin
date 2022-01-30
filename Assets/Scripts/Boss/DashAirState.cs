@@ -89,7 +89,7 @@ namespace Boss
             }
         }
 
-        public static DashAirState Create(Boss target)
+        public static DashAirState Create(BossEnemy target)
         {
             return BossState.Create<DashAirState>(target);
         }

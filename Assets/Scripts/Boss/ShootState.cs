@@ -41,7 +41,7 @@ namespace Boss{
                 }
             }
 
-            public static ShootState Create(Boss target)
+            public static ShootState Create(BossEnemy target)
             {
                 return BossState.Create<ShootState>(target);
             }
