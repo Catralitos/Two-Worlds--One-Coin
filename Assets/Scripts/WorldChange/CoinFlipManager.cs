@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace WorldChange
 {
@@ -19,23 +21,41 @@ namespace WorldChange
         public Image frontImg;
         public Image backImg;
 
+        private float _flipThreshold;
+        public float increasePerFailedFlip = 0.05f;
+
+        private void Start()
+        {
+            _flipThreshold = -1.0f;
+        }
+
         public void FlipCoin(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
                 if (!pressedButton)
                 {
-                    var auxresult = Random.Range(0, 2);
+                    float randomFloat = Random.Range(0.0f, 1.0f);
+                    Debug.Log(randomFloat + " " + _flipThreshold);
+                    
+                    var auxresult = randomFloat >= _flipThreshold ? 1 : 0;
 
                     if (auxresult != this.result)
+                    {
                         resultChanged = true;
-                    else resultChanged = false;
+                        _flipThreshold = 0.5f;
+                    }
+                    else
+                    {
+                        resultChanged = false;
+                        _flipThreshold -= increasePerFailedFlip;
+                    }
 
                     result = auxresult;
                     pressedButton = true;
 
                     flipObject.OnInteract(result, this);
-                    Debug.Log("Result: " + result);
+                    //Debug.Log("Result: " + result);
                
                
                 }
