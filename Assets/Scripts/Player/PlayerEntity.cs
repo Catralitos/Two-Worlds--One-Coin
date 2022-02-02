@@ -62,6 +62,7 @@ namespace Player
               //  bossMan.SetActive(false);
                 surrealWorldSprite.SetActive(false);
                 realWorldSprite.SetActive(true);
+                Health.RestoreHealth(20);
                 this.transform.position += new Vector3(-x_Distance, 0.0f, 0.0f);
                 FindObjectOfType<GameManager>()?.ChangeSong("Lidl");
                 surrealUI.SetActive(false);

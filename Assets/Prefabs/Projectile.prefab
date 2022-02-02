@@ -119,4 +119,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 7168
   speed: 10
-  damage: 10
+  damage: 5
